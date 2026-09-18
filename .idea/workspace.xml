@@ -2,145 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="83cea111-fc04-440a-8a63-c6e806066de5" name="変更" comment="feat: initialize TacticalBackpack core framework Initial TacticalBackpack project setup">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/KisaragiProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/CREDITS.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/changelog.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/TacticalBackpack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ModCompatRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/cctweaked/CCBackpackPeripheral.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/cctweaked/CCTweakedIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/cobblemon/BackpackCobblemonSpawnHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/cobblemon/BackpackCobblemonSpawnTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/cobblemon/BackpackCobblemonZoneUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/cobblemon/CobblemonIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/cobblemon/CobblemonOptionalBridge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/create/CreateHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/create/CreateIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/curios/CuriosBackpackCurio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/curios/CuriosBackpackHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/curios/CuriosHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/curios/CuriosIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/curios/TacticalBackpackCurioRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/epicfight/BackpackSmithNpcHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/epicfight/BackpackSmithService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/epicfight/EpicFightIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/epicfight/EpicFightWeaponHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/farmersdelight/FarmersDelightHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/farmersdelight/FarmersDelightIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackCatalogFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackCatalogRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackConflictService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackDependencyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackDescriptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackDownloadQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackFileValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackImportService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackInstallRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackInstallResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackInstaller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackIntegrityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackPaths.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackPlatformDetector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackProfile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackProfileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackQueueEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackQueueState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackUserMetadata.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPlatform.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/l2/L2AccessoryContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/l2/L2Integration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/mekanism/BackpackMekanismEnergyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/mekanism/MekanismEnergyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/mekanism/MekanismIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/nightfall/NightfallIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/nightfall/NightfallSmithData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/nightfall/NightfallWeaponBridge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/reavaritia/ReAvaritiaHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/reavaritia/ReAvaritiaIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/slashblade/SlashBladeContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/slashblade/SlashBladeIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/tacz/TaczIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/tacz/TaczRecipeEntry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/tacz/TaczRecipeLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/tacz/TaczRecipeRegistry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/tacz/TaczWorkbenchBridge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/tconstruct/TinkersIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/tconstruct/TinkersToolHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/config/BackpackConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/config/tacticalbackpack-common.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackContents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackCraftingInventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackEnderStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackEquipmentContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackInventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackItemCapabilityProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackItemHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackPickupFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackSharedStorage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/BackpackSortHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/inventory/TaczRecipeListContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/item/BackpackReturnDeviceItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/item/BackpackZoneControllerItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/item/BackpackZoneRemoverItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/item/TacticalBackpackItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackCraftMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackEquipmentMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackGunWorkbenchMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackPocketMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackTabs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackTradeMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackUpgradesMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/BackpackWorkbenchMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/TacticalBackpackMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/factory/BackpackMenuFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/factory/BackpackMenuSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/slot/BackpackResultSlot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/slot/EnergySlot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/slot/SizeSlot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/slot/TaczRecipeListSlot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/slot/TaczWorkbenchResultSlot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/slot/UpgradeSlot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/MenuConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/MenuIds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/MenuUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/BackpackTradeBuyPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/BackpackTradeSearchPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/BackpackTradeSellPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/BackpackZoneSizePacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/EnterBackpackWorldPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/FlightModeTogglePacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/GunWorkbenchActionPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/JetpackKeyPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/JetpackTogglePacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/ModNetwork.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/ReturnFromBackpackWorldPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/UpdateWorkbenchSearchPacket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/registry/ModBlocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/registry/ModCreativeTabs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/registry/ModItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/registry/ModMenus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/registry/ModSounds.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/registry/Registration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/META-INF/mods.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/pack.mcmeta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +31,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.selected.package.jshint": "",
@@ -239,7 +101,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: initialize TacticalBackpack core framework Initial TacticalBackpack project setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: initialize TacticalBackpack core framework Initial TacticalBackpack project setup" />
+    <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge master into main and initialize TacticalBackpack v0.1.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
