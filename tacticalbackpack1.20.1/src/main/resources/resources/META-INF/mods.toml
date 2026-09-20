@@ -1,0 +1,96 @@
+############################################################
+# TacticalBackpack
+# Minecraft Forge Mod Metadata
+#
+# Minecraft : 1.20.1
+# Forge     : 47.4.23
+# Java      : 17
+#
+# This file defines how Forge recognizes and loads the mod.
+############################################################
+
+# ----------------------------------------------------------
+# Mod Loader
+# ----------------------------------------------------------
+
+modLoader="javafml"
+
+# Forge Loader Version
+loaderVersion="[47,)"
+
+# License
+license="All Rights Reserved"
+
+############################################################
+# Mod Information
+############################################################
+
+[[mods]]
+
+# Internal Mod ID
+# IMPORTANT:
+# This must be identical to:
+#  - @Mod("tacticalbackpack")
+#  - assets/tacticalbackpack/
+#  - data/tacticalbackpack/
+#
+modId="tacticalbackpack"
+
+# Current Version
+version="v0.1.0"
+
+# Display Name
+displayName="TacticalBackpack"
+
+# Author(s)
+authors="Kisaragi Mikoto"
+
+# Optional
+# logoFile="logo.png"
+
+# Description shown in the Mods menu
+description='''
+A modular tactical backpack for Minecraft Forge.
+
+Main Features
+ • Large expandable storage
+ • Curios support
+ • Cobblemon support
+ • TacZ support
+ • Epic Fight support
+ • Mekanism support
+ • Create support
+ • SlashBlade support
+ • Farmer's Delight support
+ • L2 support
+
+Designed as a multi-mod compatible backpack framework.
+'''
+
+############################################################
+# Dependencies
+############################################################
+
+# ----------------------------------------------------------
+# Minecraft Forge
+# ----------------------------------------------------------
+
+[[dependencies.tacticalbackpack]]
+
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+# ----------------------------------------------------------
+# Minecraft
+# ----------------------------------------------------------
+
+[[dependencies.tacticalbackpack]]
+
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"

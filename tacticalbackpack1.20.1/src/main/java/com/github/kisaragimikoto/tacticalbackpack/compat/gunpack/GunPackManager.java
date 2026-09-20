@@ -16,6 +16,7 @@ public final class GunPackManager {
     public static void init() {
         try { GunPackPaths.ensureDirectories(); }
         catch (IOException ignored) { }
+        GunPackCatalogFile.reload();
     }
 
     public static List<InstalledPack> installed(GunPlatform platform) {
