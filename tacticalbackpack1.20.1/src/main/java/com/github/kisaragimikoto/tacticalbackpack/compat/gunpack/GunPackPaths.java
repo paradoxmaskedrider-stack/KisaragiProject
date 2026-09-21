@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-/** Keeps downloaded content isolated and exposes per-platform deployment folders. */
+/** Keeps manager data isolated while deploying packs into the directories read by their host mods. */
 public final class GunPackPaths {
     private static final Path ROOT = FMLPaths.GAMEDIR.get().resolve("tacticalbackpack").resolve("gunpacks");
 
@@ -31,9 +31,13 @@ public final class GunPackPaths {
         return recycle().resolve(platform.id());
     }
 
-    public static Path installDirectory(GunPlatform platform) {
-        // Adapter-owned folders prevent one ecosystem's pack from being copied into another.
+    /** commit06/07 compatibility location. Files here are migrated to their real host directory on init. */
+    public static Path legacyInstallDirectory(GunPlatform platform) {
         return ROOT.resolve("installed").resolve(platform.id());
+    }
+
+    public static Path deploymentDirectory(GunPlatform platform, String fileName) {
+        return GunPackDeploymentResolver.deploymentDirectory(platform, fileName);
     }
 
     public static void ensureDirectories() throws IOException {
@@ -44,13 +48,16 @@ public final class GunPackPaths {
         Files.createDirectories(profiles());
         Files.createDirectories(imports());
         Files.createDirectories(autoImportDirectory());
+        Files.createDirectories(FMLPaths.GAMEDIR.get().resolve("tacz"));
+        Files.createDirectories(FMLPaths.GAMEDIR.get().resolve("pointblank"));
+        Files.createDirectories(FMLPaths.GAMEDIR.get().resolve("mods"));
         for (GunPlatform platform : GunPlatform.values()) {
-            Files.createDirectories(installDirectory(platform));
+            Files.createDirectories(legacyInstallDirectory(platform));
             Files.createDirectories(backupDirectory(platform));
             Files.createDirectories(recycleDirectory(platform));
             Files.createDirectories(importDirectory(platform));
         }
     }
 
-    private GunPackPaths() {}
+    private GunPackPaths() { }
 }

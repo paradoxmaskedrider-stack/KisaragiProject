@@ -47,7 +47,9 @@ public final class GunPackInstaller {
                 return GunPackInstallResult.failure(validation.message() + " File moved to quarantine.");
             }
 
-            Path target = GunPackPaths.installDirectory(descriptor.platform()).resolve(downloaded.getFileName());
+            Path deployDir = GunPackPaths.deploymentDirectory(descriptor.platform(), downloaded.getFileName().toString());
+            Files.createDirectories(deployDir);
+            Path target = deployDir.resolve(downloaded.getFileName());
             if (Files.exists(target)) {
                 String stamp = Long.toString(Instant.now().toEpochMilli());
                 Files.move(target, GunPackPaths.backupDirectory(descriptor.platform()).resolve(stamp + "-" + target.getFileName()), StandardCopyOption.REPLACE_EXISTING);

@@ -93,12 +93,15 @@ public final class GunPackImportService {
         }
         try {
             GunPackPaths.ensureDirectories();
-            Path target = GunPackPaths.installDirectory(candidate.platform()).resolve(candidate.path().getFileName());
+            Path deployDir = GunPackPaths.deploymentDirectory(candidate.platform(), candidate.path().getFileName().toString());
+            Files.createDirectories(deployDir);
+            Path target = deployDir.resolve(candidate.path().getFileName());
             if (Files.exists(target)) {
                 String stamp = Long.toString(Instant.now().toEpochMilli());
                 Files.move(target, GunPackPaths.backupDirectory(candidate.platform()).resolve(stamp + "-" + target.getFileName()), StandardCopyOption.REPLACE_EXISTING);
             }
             Files.move(candidate.path(), target, StandardCopyOption.REPLACE_EXISTING);
+            GunPackInstallRegistry.recordImported(candidate.platform(), target);
             return new ImportResult(true, 1, 0, "Imported " + target.getFileName() + " for " + candidate.platform().displayName() + ". Restart or reload may be required.");
         } catch (IOException exception) {
             return new ImportResult(false, 0, 1, "Import failed: " + exception.getMessage());

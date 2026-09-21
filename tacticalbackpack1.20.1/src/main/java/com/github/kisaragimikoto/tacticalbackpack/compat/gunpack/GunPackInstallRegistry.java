@@ -31,6 +31,14 @@ public final class GunPackInstallRegistry {
         save(entries);
     }
 
+    public static synchronized void recordImported(GunPlatform platform, Path installedFile) throws IOException {
+        String fileName = installedFile.getFileName().toString();
+        List<Entry> entries = new ArrayList<>(load());
+        entries.removeIf(entry -> entry.platform() == platform && entry.fileName().equals(fileName));
+        entries.add(new Entry("local:" + fileName, fileName, "local", platform, fileName, true, Instant.now().toEpochMilli()));
+        save(entries);
+    }
+
     public static synchronized List<Entry> load() {
         if (!Files.isRegularFile(FILE)) return List.of();
         try {
