@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="83cea111-fc04-440a-8a63-c6e806066de5" name="変更" comment="Merge master into main and initialize TacticalBackpack v0.1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/BUILD_STATUS_commit07.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/TacticalBackpackMod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackImportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackImportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackInstallRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackInstallRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackInstaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackInstaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackPaths.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

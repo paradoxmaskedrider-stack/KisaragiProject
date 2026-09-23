@@ -1,0 +1,20 @@
+TacticalBackpack commit10
+
+Added Applied Energistics 2 (AE2) as an optional compatibility target.
+
+Changes:
+- Added compat/ae2/AE2Integration.java
+- Added AE2 detection to ModCompatRegistry
+- Added ModChecker.isAE2Loaded()
+- Added ENABLE_AE2 / enableAE2 config option (default true)
+- Added AE2Integration.init() to TacticalBackpack.java
+- Added optional ae2 dependency metadata to mods.toml
+- Added AE2 to the displayed compatibility list
+
+Compatibility target:
+- Minecraft 1.20.1
+- Forge 47.x
+- Applied Energistics 2 15.x (optional)
+
+AE2 remains optional: TacticalBackpack does not require AE2 to launch.
+This commit establishes the integration entry point for later ME network/storage features.
