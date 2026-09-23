@@ -13,6 +13,7 @@ public class ModCompatRegistry {
     public static boolean CREATE;
     public static boolean FARMERS_DELIGHT;
     public static boolean MEKANISM;
+    public static boolean AE2;
 
     public static void init() {
 
@@ -28,5 +29,6 @@ public class ModCompatRegistry {
         CREATE = ModList.get().isLoaded("create");
         FARMERS_DELIGHT = ModList.get().isLoaded("farmersdelight");
         MEKANISM = ModList.get().isLoaded("mekanism");
+        AE2 = ModList.get().isLoaded("ae2");
     }
 }

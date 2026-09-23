@@ -1,6 +1,6 @@
 package com.github.kisaragimikoto.tacticalbackpack.registry;
 
-import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpackMod;
+import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack;
 import com.github.kisaragimikoto.tacticalbackpack.item.TacticalBackpackItem;
 import com.github.kisaragimikoto.tacticalbackpack.item.BackpackReturnDeviceItem;
 import com.github.kisaragimikoto.tacticalbackpack.item.BackpackZoneControllerItem;
@@ -17,7 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
 
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, TacticalBackpackMod.MODID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, TacticalBackpack.MODID);
 
     public static final RegistryObject<Item> TACTICAL_BACKPACK =
             ITEMS.register("tactical_backpack",

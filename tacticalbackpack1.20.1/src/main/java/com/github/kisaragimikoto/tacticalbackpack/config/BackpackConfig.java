@@ -11,6 +11,9 @@ public class BackpackConfig {
     public static final ForgeConfigSpec.BooleanValue ENABLE_EPICFIGHT;
     public static final ForgeConfigSpec.BooleanValue ENABLE_TCONSTRUCT;
     public static final ForgeConfigSpec.BooleanValue ENABLE_MEKANISM;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_AE2;
+    public static final ForgeConfigSpec.IntValue AE2_TRANSFER_LIMIT;
+    public static final ForgeConfigSpec.IntValue AE2_WIRELESS_SESSION_TICKS;
     public static final ForgeConfigSpec.IntValue COBBLEMON_INITIAL_BOXES;
     public static final ForgeConfigSpec.IntValue COBBLEMON_SLOTS_PER_BOX;
     public static final ForgeConfigSpec.LongValue COBBLEMON_MAX_POKEMON;
@@ -37,6 +40,18 @@ public class BackpackConfig {
 
         ENABLE_MEKANISM = builder
                 .define("enableMekanism", true);
+
+        ENABLE_AE2 = builder
+                .comment("Enable Applied Energistics 2 integration when AE2 is installed")
+                .define("enableAE2", true);
+
+        AE2_TRANSFER_LIMIT = builder
+                .comment("Maximum item count moved by one backpack-to-ME bulk transfer. 0 means unlimited.")
+                .defineInRange("ae2TransferLimit", 4096, 0, 1_000_000);
+
+        AE2_WIRELESS_SESSION_TICKS = builder
+                .comment("Server-side lifetime of an AE2 wireless backpack session in ticks.")
+                .defineInRange("ae2WirelessSessionTicks", 1200, 20, 72_000);
 
         builder.pop();
 

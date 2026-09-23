@@ -1,6 +1,6 @@
 package com.github.kisaragimikoto.tacticalbackpack.registry;
 
-import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpackMod;
+import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack;
 import com.github.kisaragimikoto.tacticalbackpack.registry.ModItems;
 
 import net.minecraft.network.chat.Component;
@@ -14,7 +14,7 @@ import net.minecraft.core.registries.Registries; // ← ここが正解
 public class ModCreativeTabs {
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TacticalBackpackMod.MODID);
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TacticalBackpack.MODID);
 
     public static final RegistryObject<CreativeModeTab> TACTICAL_BACKPACK_TAB =
             CREATIVE_MODE_TABS.register("tactical_backpack_tab", () -> CreativeModeTab.builder()

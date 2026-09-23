@@ -1,6 +1,6 @@
 package com.github.kisaragimikoto.tacticalbackpack.client.gunpack;
 
-import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpackMod;
+import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack;
 import com.github.kisaragimikoto.tacticalbackpack.config.BackpackConfig;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
@@ -21,7 +21,7 @@ public final class GunPackClientEvents {
             "key.categories.tacticalbackpack"
     );
 
-    @Mod.EventBusSubscriber(modid = TacticalBackpackMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(modid = TacticalBackpack.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static final class ModBus {
         @SubscribeEvent
         public static void registerKeys(RegisterKeyMappingsEvent event) {
@@ -29,7 +29,7 @@ public final class GunPackClientEvents {
         }
     }
 
-    @Mod.EventBusSubscriber(modid = TacticalBackpackMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
+    @Mod.EventBusSubscriber(modid = TacticalBackpack.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static final class ForgeBus {
         @SubscribeEvent
         public static void clientTick(TickEvent.ClientTickEvent event) {

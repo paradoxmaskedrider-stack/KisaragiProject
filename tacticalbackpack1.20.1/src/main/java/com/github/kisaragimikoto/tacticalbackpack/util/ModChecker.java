@@ -31,5 +31,9 @@ public final class ModChecker {
         return isLoaded("elite_x_quality_guns");
     }
 
+    public static boolean isAE2Loaded() {
+        return isLoaded("ae2");
+    }
+
     private ModChecker() { }
 }

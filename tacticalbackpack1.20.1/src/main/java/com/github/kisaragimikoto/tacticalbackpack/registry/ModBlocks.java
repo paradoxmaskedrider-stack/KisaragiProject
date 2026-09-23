@@ -1,6 +1,6 @@
 package com.github.kisaragimikoto.tacticalbackpack.registry;
 
-import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpackMod;
+import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack;
 import com.github.kisaragimikoto.tacticalbackpack.block.BackpackTradeTerminalBlock;
 
 import net.minecraft.world.level.block.Block;
@@ -17,7 +17,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(
                     ForgeRegistries.BLOCKS,
-                    TacticalBackpackMod.MODID
+                    TacticalBackpack.MODID
             );
 
     public static final RegistryObject<Block> BACKPACK_TRADE_TERMINAL =

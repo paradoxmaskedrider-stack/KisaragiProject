@@ -59,6 +59,7 @@ Main Features
  • TacZ support
  • Epic Fight support
  • Mekanism support
+ • Applied Energistics 2 support
  • Create support
  • SlashBlade support
  • Farmer's Delight support
@@ -93,4 +94,15 @@ modId="minecraft"
 mandatory=true
 versionRange="[1.20.1,1.21)"
 ordering="NONE"
+side="BOTH"
+
+# ----------------------------------------------------------
+# Applied Energistics 2 (optional)
+# ----------------------------------------------------------
+
+[[dependencies.tacticalbackpack]]
+modId="ae2"
+mandatory=false
+versionRange="[15,16)"
+ordering="AFTER"
 side="BOTH"

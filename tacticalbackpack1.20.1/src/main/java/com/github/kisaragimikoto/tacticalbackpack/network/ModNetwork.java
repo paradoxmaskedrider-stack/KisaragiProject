@@ -1,6 +1,6 @@
 package com.github.kisaragimikoto.tacticalbackpack.network;
 
-import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpackMod;
+import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
@@ -13,7 +13,7 @@ public class ModNetwork {
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(
-                    TacticalBackpackMod.MODID,
+                    TacticalBackpack.MODID,
                     "main"
             ),
             () -> PROTOCOL_VERSION,

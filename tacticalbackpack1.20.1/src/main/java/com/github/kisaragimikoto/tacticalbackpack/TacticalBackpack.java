@@ -1,6 +1,7 @@
 package com.github.kisaragimikoto.tacticalbackpack;
 
 import com.github.kisaragimikoto.tacticalbackpack.compat.ModCompatRegistry;
+import com.github.kisaragimikoto.tacticalbackpack.compat.ae2.AE2Integration;
 import com.github.kisaragimikoto.tacticalbackpack.compat.cctweaked.CCTweakedIntegration;
 import com.github.kisaragimikoto.tacticalbackpack.compat.cobblemon.CobblemonIntegration;
 import com.github.kisaragimikoto.tacticalbackpack.compat.create.CreateIntegration;
@@ -28,12 +29,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(TacticalBackpackMod.MODID)
-public class TacticalBackpackMod {
+@Mod(TacticalBackpack.MODID)
+public class TacticalBackpack {
 
     public static final String MODID = "tacticalbackpack";
 
-    public TacticalBackpackMod() {
+    public TacticalBackpack() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.ITEMS.register(modEventBus);
@@ -65,6 +66,7 @@ public class TacticalBackpackMod {
         NightfallIntegration.init();
         TinkersIntegration.init();
         MekanismIntegration.init();
+        AE2Integration.init();
         CreateIntegration.init();
         FarmersDelightIntegration.init();
         CCTweakedIntegration.init();

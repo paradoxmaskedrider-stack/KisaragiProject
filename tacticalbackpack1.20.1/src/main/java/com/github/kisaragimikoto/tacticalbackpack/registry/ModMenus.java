@@ -1,6 +1,6 @@
 package com.github.kisaragimikoto.tacticalbackpack.registry;
 
-import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpackMod;
+import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack;
 import com.github.kisaragimikoto.tacticalbackpack.menu.TacticalBackpackMenu;
 import com.github.kisaragimikoto.tacticalbackpack.menu.BackpackCraftMenu;
 import com.github.kisaragimikoto.tacticalbackpack.menu.BackpackPocketMenu;
@@ -21,7 +21,7 @@ import com.github.kisaragimikoto.tacticalbackpack.menu.BackpackGunWorkbenchMenu;
 public class ModMenus {
 
     public static final DeferredRegister<MenuType<?>> MENUS =
-            DeferredRegister.create(ForgeRegistries.MENU_TYPES, TacticalBackpackMod.MODID);
+            DeferredRegister.create(ForgeRegistries.MENU_TYPES, TacticalBackpack.MODID);
 
     public static final RegistryObject<MenuType<TacticalBackpackMenu>> BACKPACK =
             MENUS.register("backpack",
