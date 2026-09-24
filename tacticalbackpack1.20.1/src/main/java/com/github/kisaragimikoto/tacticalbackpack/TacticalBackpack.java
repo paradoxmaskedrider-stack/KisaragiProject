@@ -27,6 +27,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(TacticalBackpack.MODID)
@@ -50,8 +51,23 @@ public class TacticalBackpack {
                 BackpackConfig.SPEC
         );
 
+        modEventBus.addListener(this::onConfigLoading);
+        modEventBus.addListener(this::onConfigReloading);
+
         registerCore();
         registerCompat();
+    }
+
+    private void onConfigLoading(ModConfigEvent.Loading event) {
+        if (event.getConfig().getSpec() == BackpackConfig.SPEC) {
+            AE2Integration.init();
+        }
+    }
+
+    private void onConfigReloading(ModConfigEvent.Reloading event) {
+        if (event.getConfig().getSpec() == BackpackConfig.SPEC) {
+            AE2Integration.init();
+        }
     }
 
     private void registerCore() {
@@ -66,7 +82,6 @@ public class TacticalBackpack {
         NightfallIntegration.init();
         TinkersIntegration.init();
         MekanismIntegration.init();
-        AE2Integration.init();
         CreateIntegration.init();
         FarmersDelightIntegration.init();
         CCTweakedIntegration.init();
