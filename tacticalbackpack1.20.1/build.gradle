@@ -138,6 +138,10 @@ dependencies {
     // AE2 remains optional for end users via mods.toml (mandatory=false).
     implementation fg.deobf("curse.maven:applied-energistics-2-223794:7148487")
 
+    // GuideME 20.1.7 is a required runtime dependency of AE2 15.4.x on Minecraft 1.20.1.
+    // Runtime-only here: TacticalBackpack does not directly compile against GuideME APIs.
+    implementation fg.deobf("curse.maven:guideme-1173950:6489464")
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")

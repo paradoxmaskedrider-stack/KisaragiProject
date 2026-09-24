@@ -1,0 +1,19 @@
+TacticalBackpack commit19
+=========================
+
+Fixes development runClient failing after AE2 loads because GuideME is missing.
+
+Changes
+-------
+- Added GuideME 20.1.7 (CurseForge file 6489464) as a ForgeGradle runtimeOnly deobfuscated dependency.
+- AE2 15.4.10 remains the optional integration dependency.
+- TacticalBackpack itself does NOT declare GuideME as a mandatory end-user dependency.
+- mod_version remains valid Forge version syntax: 0.1.0.
+
+Expected next command
+---------------------
+  .\\gradlew.bat clean
+  .\\gradlew.bat runClient
+
+If Gradle has a stale dependency cache, use:
+  .\\gradlew.bat --refresh-dependencies runClient
