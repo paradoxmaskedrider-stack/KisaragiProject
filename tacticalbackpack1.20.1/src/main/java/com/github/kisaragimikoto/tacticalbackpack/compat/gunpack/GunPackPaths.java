@@ -40,6 +40,20 @@ public final class GunPackPaths {
         return GunPackDeploymentResolver.deploymentDirectory(platform, fileName);
     }
 
+    /**
+     * Returns the primary folder to show in the manager UI. Some platforms can
+     * deploy different file types to more than one folder; per-file operations
+     * must use {@link #deploymentDirectory(GunPlatform, String)} instead.
+     */
+    public static Path primaryInstallDirectory(GunPlatform platform) {
+        Path gameDir = FMLPaths.GAMEDIR.get();
+        return switch (platform) {
+            case TACZ, ELITE_X_QUALITY_GUNS -> gameDir.resolve("tacz");
+            case POINT_BLANK -> gameDir.resolve("pointblank");
+            case GUNSMITHLIB -> gameDir.resolve("mods");
+        };
+    }
+
     public static void ensureDirectories() throws IOException {
         Files.createDirectories(downloads());
         Files.createDirectories(backups());

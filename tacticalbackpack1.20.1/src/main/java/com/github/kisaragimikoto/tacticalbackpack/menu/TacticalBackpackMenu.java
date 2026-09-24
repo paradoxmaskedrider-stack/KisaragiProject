@@ -1,6 +1,7 @@
 package com.github.kisaragimikoto.tacticalbackpack.menu;
 
 import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackInventory;
+import com.github.kisaragimikoto.tacticalbackpack.compat.ae2.AE2Integration;
 import com.github.kisaragimikoto.tacticalbackpack.item.TacticalBackpackItem;
 import com.github.kisaragimikoto.tacticalbackpack.registry.ModMenus;
 import net.minecraft.network.chat.Component;
@@ -10,6 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.network.NetworkHooks;
@@ -21,10 +23,14 @@ public class TacticalBackpackMenu extends AbstractContainerMenu {
     private final int storageSize;
     private final int visibleStorageSlots;
     private final int rows;
+    private final Player ownerPlayer;
+    private int clientAe2Linked;
+    private int clientAe2Online;
 
     public TacticalBackpackMenu(int id, Inventory playerInventory, ItemStack stack) {
         super(ModMenus.BACKPACK.get(), id);
         this.backpackStack = stack;
+        this.ownerPlayer = playerInventory.player;
         this.container = TacticalBackpackItem.getInventory(stack);
         this.storageSize = BackpackInventory.getStorageSize(stack);
         this.visibleStorageSlots = Math.min(storageSize, MAX_VISIBLE_STORAGE);
@@ -57,10 +63,53 @@ public class TacticalBackpackMenu extends AbstractContainerMenu {
         for (int col = 0; col < 9; col++) {
             addSlot(new Slot(playerInventory, col, startX + col * 18, hotbarY));
         }
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                if (ownerPlayer instanceof ServerPlayer serverPlayer) {
+                    return AE2Integration.isEnabled() && AE2Integration.isLinked(backpackStack) ? 1 : 0;
+                }
+                return clientAe2Linked;
+            }
+
+            @Override
+            public void set(int value) {
+                clientAe2Linked = value;
+            }
+        });
+
+        addDataSlot(new DataSlot() {
+            @Override
+            public int get() {
+                if (ownerPlayer instanceof ServerPlayer serverPlayer) {
+                    return AE2Integration.isEnabled()
+                            && AE2Integration.resolveStorage(serverPlayer, backpackStack).isOnline() ? 1 : 0;
+                }
+                return clientAe2Online;
+            }
+
+            @Override
+            public void set(int value) {
+                clientAe2Online = value;
+            }
+        });
     }
 
     public int getRows() { return rows; }
     public int getVisibleStorageSlots() { return visibleStorageSlots; }
+    public ItemStack getBackpackStack() { return backpackStack; }
+    public boolean isAe2Linked() { return clientAe2Linked != 0; }
+    public boolean isAe2Online() { return clientAe2Online != 0; }
+
+    public void saveBackpackInventory() {
+        TacticalBackpackItem.saveInventory(backpackStack, container);
+    }
+
+    public void reloadBackpackInventory() {
+        container.loadFromNBT(backpackStack.getTag());
+        broadcastChanges();
+    }
 
     @Override
     public boolean stillValid(Player player) {

@@ -41,6 +41,6 @@ final class AE2ApiNetworkResolver implements AE2NetworkResolver {
             return AE2StorageAccess.OFFLINE;
         }
 
-        return new AE2ApiStorageAccess(storageService.getInventory(), player, true);
+        return new AE2ApiStorageAccess(storageService, player, true);
     }
 }

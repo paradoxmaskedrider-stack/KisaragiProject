@@ -44,7 +44,8 @@ public final class GunPackManagerScreen extends Screen {
         rebuildWidgets();
     }
 
-    private void rebuildWidgets() {
+    @Override
+    protected void rebuildWidgets() {
         clearWidgets();
         int center = width / 2;
         int top = 24;
@@ -196,7 +197,7 @@ public final class GunPackManagerScreen extends Screen {
     private void openFolder() {
         try {
             GunPackPaths.ensureDirectories();
-            Util.getPlatform().openUri(GunPackPaths.installDirectory(platform).toUri());
+            Util.getPlatform().openUri(GunPackPaths.primaryInstallDirectory(platform).toUri());
         } catch (Exception exception) {
             status = exception.getMessage() == null ? exception.getClass().getSimpleName() : exception.getMessage();
         }

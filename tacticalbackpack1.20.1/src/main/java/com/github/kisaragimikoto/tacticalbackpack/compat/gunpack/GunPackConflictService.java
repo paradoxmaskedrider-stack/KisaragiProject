@@ -18,15 +18,11 @@ public final class GunPackConflictService {
     public static ConflictReport scan(GunPlatform platform) {
         Map<String, List<Path>> owners = new HashMap<>();
         List<String> errors = new ArrayList<>();
-        Path directory = GunPackPaths.installDirectory(platform);
-        if (!Files.isDirectory(directory)) return new ConflictReport(platform, List.of(), List.of());
-
-        try (var stream = Files.list(directory)) {
-            stream.filter(Files::isRegularFile)
-                    .filter(GunPackConflictService::enabledArchive)
-                    .forEach(path -> collect(path, owners, errors));
-        } catch (IOException exception) {
-            errors.add(exception.getMessage());
+        for (GunPackManager.InstalledPack pack : GunPackManager.installed(platform)) {
+            Path path = pack.path();
+            if (pack.enabled() && Files.isRegularFile(path) && enabledArchive(path)) {
+                collect(path, owners, errors);
+            }
         }
 
         List<Conflict> conflicts = owners.entrySet().stream()

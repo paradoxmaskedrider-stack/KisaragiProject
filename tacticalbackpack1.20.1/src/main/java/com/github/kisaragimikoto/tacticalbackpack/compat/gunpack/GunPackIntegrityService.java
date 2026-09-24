@@ -19,7 +19,7 @@ public final class GunPackIntegrityService {
     public static AuditReport auditAll() {
         List<AuditEntry> entries = new ArrayList<>();
         for (GunPlatform platform : GunPlatform.values()) {
-            collect(entries, platform, Location.INSTALLED, GunPackPaths.installDirectory(platform));
+            collectManagedInstalled(entries, platform);
             collect(entries, platform, Location.BACKUP, GunPackPaths.backupDirectory(platform));
             collect(entries, platform, Location.IMPORT, GunPackPaths.importDirectory(platform));
         }
@@ -49,6 +49,14 @@ public final class GunPackIntegrityService {
         long duplicateFiles = filtered.stream().filter(AuditEntry::duplicate).count();
         long invalidFiles = filtered.stream().filter(entry -> !entry.valid()).count();
         return new AuditReport(filtered, duplicateFiles, invalidFiles);
+    }
+
+    private static void collectManagedInstalled(List<AuditEntry> output, GunPlatform platform) {
+        for (GunPackManager.InstalledPack pack : GunPackManager.installed(platform)) {
+            if (Files.isRegularFile(pack.path())) {
+                output.add(inspect(platform, Location.INSTALLED, pack.path()));
+            }
+        }
     }
 
     private static void collect(List<AuditEntry> output, GunPlatform platform, Location location, Path directory) {

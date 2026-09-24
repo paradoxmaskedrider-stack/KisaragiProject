@@ -2,6 +2,8 @@ package com.github.kisaragimikoto.tacticalbackpack.compat.ae2;
 
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 /**
  * Loader-safe abstraction over an AE2 ME inventory.
  * An AE2 API backed implementation is installed only when AE2 is present.
@@ -20,4 +22,9 @@ public interface AE2StorageAccess {
 
     /** @return extracted stack, or ItemStack.EMPTY */
     ItemStack extract(ItemStack template, int amount, boolean simulate);
+
+    /** Snapshot of item variants currently available in this ME inventory. */
+    default List<AE2ItemEntry> getAvailableItems() {
+        return List.of();
+    }
 }

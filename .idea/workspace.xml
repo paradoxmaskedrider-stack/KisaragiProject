@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83cea111-fc04-440a-8a63-c6e806066de5" name="変更" comment="Merge master into main and initialize TacticalBackpack v0.1.0">
+    <list default="true" id="83cea111-fc04-440a-8a63-c6e806066de5" name="変更" comment="Merge master into main and initialize TacticalBackpack v0.1.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/client/gunpack/GunPackManagerScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/client/gunpack/GunPackManagerScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2ApiNetworkResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2ApiNetworkResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2ApiStorageAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2ApiStorageAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2Integration.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2Integration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2StorageAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/ae2/AE2StorageAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackConflictService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackConflictService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackIntegrityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackIntegrityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackPaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/compat/gunpack/GunPackPaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/TacticalBackpackMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/TacticalBackpackMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/BackpackLogger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/BackpackTags.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/BackpackVersion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/ModNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/network/ModNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/META-INF/mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/META-INF/mods.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/assets/tacticalbackpack/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/assets/tacticalbackpack/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/assets/tacticalbackpack/lang/ja_jp.json" beforeDir="false" afterPath="$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/resources/assets/tacticalbackpack/lang/ja_jp.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,24 +54,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.E:/github/KisaragiProject/tacticalbackpack1.20.1/build.gradle.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;プロジェクト&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.E:/github/KisaragiProject/tacticalbackpack1.20.1/build.gradle.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/github/KisaragiProject",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "プロジェクト",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\github\KisaragiProject\tacticalbackpack1.20.1\src\main\java\com\github\kisaragimikoto\tacticalbackpack" />
@@ -115,15 +134,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: initialize TacticalBackpack core framework Initial TacticalBackpack project setup" />
     <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge master into main and initialize TacticalBackpack v0.1.0" />
+    <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.1.1" />
+    <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge master into main and initialize TacticalBackpack v0.1.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/tacticalbackpack1.20.1/src/main/java/com/github/kisaragimikoto/tacticalbackpack/TacticalBackpack.java</url>
-          <line>59</line>
-          <properties class="com.github.kisaragimikoto.tacticalbackpack.TacticalBackpackMod" method="registerCompat">
+          <line>60</line>
+          <properties class="com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack" method="registerCompat">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

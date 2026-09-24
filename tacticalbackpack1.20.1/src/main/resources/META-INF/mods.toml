@@ -37,7 +37,7 @@ license="All Rights Reserved"
 modId="tacticalbackpack"
 
 # Current Version
-version="v0.1.0"
+version="${mod_version}"
 
 # Display Name
 displayName="TacticalBackpack"

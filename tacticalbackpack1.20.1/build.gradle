@@ -112,6 +112,9 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    // CurseMaven is used only for optional development/compile integration jars.
+    maven { url = "https://www.cursemaven.com" }
+
     // Put repositories for dependencies here
     // ForgeGradle automatically adds the Forge maven and Maven Central for you
 
@@ -129,6 +132,11 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Applied Energistics 2 15.4.10 (Minecraft 1.20.1 Forge).
+    // Keep one deobfuscated dependency on the development classpath. This does NOT bundle AE2 into TacticalBackpack.
+    // AE2 remains optional for end users via mods.toml (mandatory=false).
+    implementation fg.deobf("curse.maven:applied-energistics-2-223794:7148487")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

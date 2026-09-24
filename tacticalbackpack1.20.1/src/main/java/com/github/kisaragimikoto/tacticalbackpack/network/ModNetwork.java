@@ -111,5 +111,37 @@ public class ModNetwork {
                 BackpackTradeSearchPacket::handle
         );
         
+        CHANNEL.registerMessage(
+                packetId++,
+                AE2BackpackActionPacket.class,
+                AE2BackpackActionPacket::encode,
+                AE2BackpackActionPacket::decode,
+                AE2BackpackActionPacket::handle
+        );
+
+        CHANNEL.registerMessage(
+                packetId++,
+                AE2ItemListRequestPacket.class,
+                AE2ItemListRequestPacket::encode,
+                AE2ItemListRequestPacket::decode,
+                AE2ItemListRequestPacket::handle
+        );
+
+        CHANNEL.registerMessage(
+                packetId++,
+                AE2ItemListPacket.class,
+                AE2ItemListPacket::encode,
+                AE2ItemListPacket::decode,
+                AE2ItemListPacket::handle
+        );
+
+        CHANNEL.registerMessage(
+                packetId++,
+                AE2PullStackPacket.class,
+                AE2PullStackPacket::encode,
+                AE2PullStackPacket::decode,
+                AE2PullStackPacket::handle
+        );
+        
     }
 }
