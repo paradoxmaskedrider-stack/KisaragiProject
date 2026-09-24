@@ -1,0 +1,16 @@
+TacticalBackpack commit15
+
+Build fixes based on real ForgeGradle compile output:
+1. GunPackManagerScreen.rebuildWidgets() is now protected and explicitly overrides Screen.rebuildWidgets().
+2. Removed all obsolete GunPackPaths.installDirectory(...) calls.
+3. Added GunPackPaths.primaryInstallDirectory(...) for the UI folder button only.
+4. GunPackConflictService now scans only TacticalBackpack-managed installed packs at their actual deployment paths.
+5. GunPackIntegrityService now audits managed installed packs at their actual deployment paths.
+6. Added cleanup_commit15_stale_sources.ps1 to delete the three stale commit13 menu/util sources that cause duplicate-class errors when updating an existing working tree in-place.
+
+Stale files to remove from an existing project:
+src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/BackpackLogger.java
+src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/BackpackTags.java
+src/main/java/com/github/kisaragimikoto/tacticalbackpack/menu/util/BackpackVersion.java
+
+Canonical files are now under tacticalbackpack/util/.

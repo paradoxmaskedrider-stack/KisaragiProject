@@ -1,0 +1,21 @@
+TacticalBackpack commit18
+
+Fixes based on the first successful compile + runClient mod-loading log:
+
+1. Forge-compatible mod version
+   - gradle.properties: mod_version=v0.1.0 -> mod_version=0.1.0
+   - mods.toml now uses version="${mod_version}" instead of a hard-coded invalid v-prefixed version.
+
+2. AE2 development dependency cleanup
+   - Replaced duplicate compileOnly + runtimeOnly declarations with one implementation fg.deobf(...) declaration.
+   - AE2 remains optional for users because mods.toml still declares mandatory=false.
+   - The dependency is for the development classpath only and is not embedded into the TacticalBackpack jar.
+
+3. commit16 Java hotfix retained
+   - AE2BackpackActionPacket has no unused zero-argument constructor.
+
+After applying:
+  .\gradlew.bat clean
+  .\gradlew.bat runClient
+
+Expected result: the prior 'Illegal version number specified v0.1.0' error is removed.

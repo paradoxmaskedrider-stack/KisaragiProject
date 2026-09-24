@@ -1,0 +1,22 @@
+TacticalBackpack commit11
+=========================
+
+AE2 integration phase 2
+- Added persistent AE2LinkData on backpack NBT (no hard AE2 class references).
+- Added AE2StorageAccess abstraction for ME insert/extract operations.
+- Added AE2NetworkResolver and AE2BridgeRegistry so the real AE2 API adapter can be loaded only when AE2 exists.
+- Added AE2BackpackTransferService:
+  * bulk backpack -> ME push
+  * requested ME -> backpack pull
+  * only normal storage slots are transferred; equipment/upgrade slots are excluded.
+- Added AE2WirelessSessionManager server-side session groundwork.
+- Extended AE2Integration with link/unlink/link-status/storage-resolution APIs.
+- Added common config:
+  * ae2TransferLimit (default 4096 items per bulk action; 0 = unlimited)
+  * ae2WirelessSessionTicks (default 1200 ticks)
+
+Safety / compatibility
+- Main class remains TacticalBackpack.java / public class TacticalBackpack.
+- AE2 remains optional; core classes do not import AE2 API types.
+- Saved backpacks remain readable if AE2 is removed.
+- Actual AE2 IGrid/IStorageService adapter remains isolated behind AE2NetworkResolver and is the next integration step.

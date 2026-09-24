@@ -1,0 +1,29 @@
+TacticalBackpack commit08
+=========================
+
+Fixed
+- Removed duplicate/misnamed TacticalBackpack.java. TacticalBackpackMod.java is the single @Mod entry class.
+- Added missing util/ModChecker.java used by CuriosIntegration and TaczIntegration.
+- Internal TacticalBackpack import scan now reports zero missing project classes.
+
+Gun Pack Manager deployment
+- Added GunPackDeploymentResolver.java.
+- TaCZ ZIP packs deploy to <game>/tacz.
+- Point Blank packs deploy to <game>/pointblank.
+- Elite X Quality Guns: JAR -> <game>/mods, ZIP -> <game>/tacz.
+- GunsmithLib: JAR -> <game>/mods; ZIP content -> <game>/tacz.
+- Download installer, local importer, backup restore and installed-pack listing now use the deployment resolver.
+- Added migration of commit06/07 files from tacticalbackpack/gunpacks/installed/<platform> to the real host-mod directory.
+- Installed-pack UI reads registry-owned files only, so unrelated files in mods/tacz/pointblank are not managed accidentally.
+- Local imports are recorded in gunpack_installed.json so they remain manageable.
+
+Still intentionally not fabricated
+- TODO/stub integrations that need real third-party API behavior (Curios equipment access, Tinkers tools,
+  CC:Tweaked GUI peripheral behavior, Epic Fight weapon extraction, TaCZ workbench module behavior) remain as TODOs.
+  These require API-specific implementation/testing rather than placeholder classes.
+
+Validation performed
+- Source file count: 145 Java files.
+- Duplicate TacticalBackpackMod public class issue removed.
+- Missing internal com.github.kisaragimikoto.tacticalbackpack imports: 0.
+- ZIP integrity checked after packaging.

@@ -1,0 +1,57 @@
+TacticalBackpack commit14
+=========================
+
+AE2 / ME browser
+----------------
+- Added live ME item listing to the TacticalBackpack screen.
+- Added server-side ME search by item display name or registry id.
+- Added server-side pagination (4 exact AE2 item variants per page).
+- Added refresh, previous/next page controls, and configurable pull amount.
+- Clicking an ME list entry pulls that exact item variant into normal backpack storage.
+- Full ItemStack NBT is used by the ME list/pull packets so tagged variants are not collapsed to only an item id.
+- ME list is refreshed after a selected item is pulled.
+- Link and push-all controls request a refreshed ME page; unlink clears the client snapshot.
+
+AE2 API integration
+-------------------
+- Added AE2ItemEntry and AE2StorageAccess#getAvailableItems().
+- AE2ApiStorageAccess now keeps IStorageService and uses getCachedInventory() for browser snapshots.
+- Actual insertion/extraction still uses the live MEStorage inventory.
+- Only AEItemKey entries are exposed in the backpack item browser.
+
+Networking
+----------
+- Added AE2ItemListRequestPacket (client -> server).
+- Added AE2ItemListPacket (server -> client).
+- Added AE2PullStackPacket (client -> server).
+- Added client-only AE2ClientInventoryCache.
+- Client list handling is gated through DistExecutor to avoid dedicated-server client class loading.
+- Server remains authoritative for ME list contents and extraction.
+
+GUI
+---
+- Widened the AE2 side panel.
+- Replaced manual item-id extraction controls with searchable ME list buttons.
+- Kept ME link/unlink, push-all, wireless connect/disconnect and online state display.
+- Compact layout keeps the AE2 panel near the backpack inventory height.
+- Japanese and English strings updated.
+
+Cleanup
+-------
+- Moved BackpackLogger.java, BackpackTags.java and BackpackVersion.java to their declared util package path.
+- TacticalBackpack.java remains the fixed main mod class name.
+
+Static verification
+-------------------
+- 163 Java source files.
+- Internal TacticalBackpack import gaps: 0.
+- Public top-level filename mismatches: 0.
+- Duplicate public top-level FQCNs: 0.
+- Package/path mismatches: 0.
+- TacticalBackpackMod references: 0.
+- ja_jp.json and en_us.json parse successfully.
+
+Build note
+----------
+A full Forge/Gradle compile was not run in this environment because Gradle/Gradle Wrapper is unavailable here.
+AE2-facing calls used by commit14 were checked against AE2 15.4.10 source APIs.

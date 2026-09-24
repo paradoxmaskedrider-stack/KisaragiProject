@@ -1,0 +1,46 @@
+TacticalBackpack commit13
+=========================
+
+AE2 backpack GUI integration
+- Added TacticalBackpackScreen as the first main backpack client screen
+- Registered the main backpack menu screen through a Dist.CLIENT-only mod event subscriber
+- Added AE2 / ME status panel to the main backpack GUI
+- Added synchronized linked / online state using menu DataSlots
+
+AE2 actions available from the backpack GUI
+- Link to the AE2 block the player is currently looking at
+- Unlink current ME network
+- Push all normal backpack storage contents to ME
+- Pull an item from ME by registry id + requested amount
+- Open / close the TacticalBackpack AE2 wireless session
+
+Server-side safety
+- Added AE2BackpackActionPacket and registered it in ModNetwork
+- AE2 actions only run while a TacticalBackpackMenu is actually open
+- Link targets are validated server-side
+- Link target must be in a loaded chunk and within 8 blocks of the player
+- New link is only kept when it resolves to an online AE2 grid
+- Invalid link attempts restore the previous link
+- Pull requests validate the Minecraft item registry id server-side
+- Pull amount is clamped server-side
+
+Inventory synchronization
+- TacticalBackpackMenu now exposes safe save/reload helpers
+- ME push/pull refreshes the currently open backpack inventory
+- Equipment and upgrade special slots remain excluded from AE2 bulk transfer by the existing transfer service
+
+Localization
+- Added Japanese and English labels/messages for the AE2 controls and backpack tabs
+
+Static validation
+- Java files: 158
+- Missing internal TacticalBackpack imports: 0
+- Public class/file-name mismatches: 0
+- Duplicate public class names: 0
+- en_us.json / ja_jp.json parse successfully
+
+Build note
+- A full Forge/Gradle compile could not be executed in this environment because no Gradle installation/wrapper is available and the Gradle distribution could not be downloaded.
+- commit12 AE2 15.4.10 compileOnly/runtimeOnly dependency remains unchanged.
+
+Main mod class remains fixed as TacticalBackpack.java / public class TacticalBackpack.

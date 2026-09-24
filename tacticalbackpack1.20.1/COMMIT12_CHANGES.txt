@@ -1,0 +1,36 @@
+TacticalBackpack commit12
+=========================
+
+AE2 15.4.10 real API bridge
+- Added AE2ApiBridgeInstaller
+- Added AE2ApiNetworkResolver
+- Added AE2ApiStorageAccess
+- AE2Integration now installs the API bridge only while AE2 integration is enabled
+- Core AE2 integration remains loader-safe when AE2 is absent
+
+ME link resolution
+- Resolves saved dimension + block position
+- Does not force-load unloaded chunks
+- Requires linked block entity to expose AE2 IActionHost
+- Requires an active AE2 IGridNode before storage I/O
+- Uses IGrid#getStorageService().getInventory()
+
+ME item I/O
+- Uses AEItemKey.of(ItemStack)
+- Uses MEStorage.insert / extract
+- Uses Actionable SIMULATE / MODULATE via Actionable.ofSimulate
+- Uses IActionSource.ofPlayer so AE2 receives the player as the action source
+
+Gradle
+- Added CurseMaven repository
+- Added AE2 15.4.10 compileOnly + runtimeOnly development dependency
+- AE2 remains optional in mods.toml ([15,16))
+
+Main mod class remains fixed as TacticalBackpack.java / TacticalBackpack.
+
+Public integration helpers
+- AE2Integration.pushAllToME(...)
+- AE2Integration.pullFromME(...)
+- AE2Integration.openWirelessSession(...)
+- AE2Integration.closeWirelessSession(...)
+- Transfer helpers obey ae2TransferLimit and ae2WirelessSessionTicks

@@ -1,0 +1,11 @@
+TacticalBackpack commit09
+
+Main class naming policy fixed by request:
+- Main Java filename: TacticalBackpack.java
+- Main public class: TacticalBackpack
+- Forge annotation: @Mod(TacticalBackpack.MODID)
+- Constructor: TacticalBackpack()
+- All project references changed from TacticalBackpackMod to TacticalBackpack.
+- TacticalBackpackMod.java no longer exists.
+
+This naming is now treated as fixed for future commits.
