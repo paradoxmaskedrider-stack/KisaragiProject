@@ -1,0 +1,13 @@
+TacticalBackpack commit25
+
+Fixes custom dimension type registry loading on Minecraft 1.20.1.
+
+Added/overwrites:
+  src/main/resources/data/tacticalbackpack/dimension_type/backpack_inner_world.json
+
+Required 1.20.1 fields added:
+  min_y: 0
+  height: 256
+  logical_height: 256
+
+This fixes RegistryDataLoader errors: No key height / No key min_y.
