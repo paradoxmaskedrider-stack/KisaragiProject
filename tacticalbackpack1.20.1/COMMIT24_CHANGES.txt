@@ -1,0 +1,18 @@
+TacticalBackpack commit24
+
+Fixes existing-world safe-mode / invalid save-data loading caused by the Java-side backpack dimension key existing without a corresponding datapack dimension definition.
+
+Added:
+- src/main/resources/data/tacticalbackpack/dimension/backpack_inner_world.json
+
+Dimension id remains exactly:
+- tacticalbackpack:backpack_inner_world
+
+Generator:
+- minecraft:flat
+- minecraft:overworld dimension type
+- empty/air world
+- plains biome
+- no structure overrides
+
+This preserves ModDimensions.BACKPACK_INNER_WORLD and lets BackpackWorldManager build its floor/terminal/rooms in the dedicated dimension.

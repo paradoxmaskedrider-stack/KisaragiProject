@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["GEG","EDE","GEG"],"key":{"G":{"item":"minecraft:gold_ingot"},"E":{"item":"minecraft:emerald"},"D":{"item":"minecraft:diamond"}},"result":{"item":"tacticalbackpack:trade_coin","count":8}}

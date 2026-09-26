@@ -1,0 +1,8 @@
+TacticalBackpack commit23
+
+- Added placeholder item models/textures for every registered item.
+- Added backpack_trade_terminal blockstate/model/texture and item model.
+- Added EN/JA display names for all registered items and the trade terminal block.
+- Kept commit22 META-INF/mods.toml unchanged.
+- resources(1).zip contained only mods.toml and pack.mcmeta, so no original artwork was available to restore.
+- Placeholder PNGs are intended to be replaced by final art later without changing registry/model IDs.

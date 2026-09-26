@@ -1,0 +1,13 @@
+TacticalBackpack commit21
+
+Fixes ForgeGradle userdev startup crash caused by AE2's Mixin refmap not being remapped into the development namespace.
+
+Changes:
+- Keep AE2 15.4.10 and GuideME 20.1.7 as fg.deobf implementation dependencies.
+- Add to every ForgeGradle run configuration:
+  mixin.env.remapRefMap=true
+  mixin.env.refMapRemappingFile=${projectDir}/build/createSrgToMcp/output.srg
+- No TacticalBackpack Java/API behavior changed in this commit.
+
+Expected result:
+- AE2 GuiGraphicsMixin can remap SRG targets such as m_280405_ in the userdev environment.

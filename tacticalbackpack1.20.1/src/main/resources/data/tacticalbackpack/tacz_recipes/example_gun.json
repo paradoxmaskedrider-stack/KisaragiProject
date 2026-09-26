@@ -1,0 +1,9 @@
+{
+  "result": "tacz:example_gun",
+  "count": 1,
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:redstone",
+    "minecraft:gunpowder"
+  ]
+}
