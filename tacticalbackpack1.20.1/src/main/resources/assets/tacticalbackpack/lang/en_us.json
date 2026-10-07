@@ -75,5 +75,18 @@
   "item.tacticalbackpack.backpack_return_device": "Backpack Return Device",
   "item.tacticalbackpack.backpack_zone_controller": "Backpack Zone Controller",
   "item.tacticalbackpack.backpack_zone_remover": "Backpack Zone Remover",
-  "block.tacticalbackpack.backpack_trade_terminal": "Backpack Trade Terminal"
+  "block.tacticalbackpack.backpack_trade_terminal": "Backpack Trade Terminal",
+  "screen.tacticalbackpack.tab.attachments": "Attach",
+  "screen.tacticalbackpack.section.craft": "Crafting",
+  "screen.tacticalbackpack.section.pocket": "Pocket",
+  "screen.tacticalbackpack.section.upgrades": "Upgrades",
+  "screen.tacticalbackpack.section.attachments": "Attachments",
+  "screen.tacticalbackpack.storage.page": "Page",
+  "screen.tacticalbackpack.storage.go": "Go",
+  "screen.tacticalbackpack.storage.page_status": "Page %1$s / %2$s  [%3$s-%4$s / %5$s slots]",
+  "message.tacticalbackpack.external_storage.linked": "External storage linked: %1$s, %2$s, %3$s / side: %4$s",
+  "message.tacticalbackpack.external_storage.unlinked": "External storage link removed.",
+  "message.tacticalbackpack.external_storage.invalid": "This block cannot be linked as item storage.",
+  "message.tacticalbackpack.external_storage.unsided": "unsided",
+  "tooltip.tacticalbackpack.external_storage": "External storage: %1$s [%2$s, %3$s, %4$s] / %5$s"
 }

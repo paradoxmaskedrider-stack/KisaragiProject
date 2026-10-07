@@ -1,6 +1,7 @@
 package com.github.kisaragimikoto.tacticalbackpack.compat.ae2;
 
 import com.github.kisaragimikoto.tacticalbackpack.config.BackpackConfig;
+import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackOverflowPolicy;
 import com.github.kisaragimikoto.tacticalbackpack.util.ModChecker;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -70,6 +71,31 @@ public final class AE2Integration {
         return AE2BackpackTransferService.pushAll(
                 backpack,
                 storage,
+                BackpackConfig.AE2_TRANSFER_LIMIT.get()
+        );
+    }
+
+    /** Automatically free the configured number of backpack slots using linked ME storage. */
+    public static AE2BackpackTransferService.TransferResult autoOverflow(ServerPlayer player, ItemStack backpack) {
+        if (!enabled || !BackpackOverflowPolicy.allowAE2() || !isLinked(backpack)) {
+            return new AE2BackpackTransferService.TransferResult(0, 0, false);
+        }
+        return AE2BackpackTransferService.overflowToKeepFreeSlots(
+                backpack,
+                resolveStorage(player, backpack),
+                BackpackOverflowPolicy.keepFreeSlots(),
+                BackpackConfig.AE2_TRANSFER_LIMIT.get()
+        );
+    }
+
+    /** Direct pickup-overflow insertion through the network linked to this backpack. */
+    public static ItemStack insertPickupOverflow(ServerPlayer player, ItemStack backpack, ItemStack input) {
+        if (!enabled || input == null || input.isEmpty() || !BackpackOverflowPolicy.allowAE2() || !isLinked(backpack)) {
+            return input == null ? ItemStack.EMPTY : input.copy();
+        }
+        return AE2BackpackTransferService.insertExternal(
+                resolveStorage(player, backpack),
+                input,
                 BackpackConfig.AE2_TRANSFER_LIMIT.get()
         );
     }

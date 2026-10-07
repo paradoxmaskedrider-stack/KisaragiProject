@@ -1,10 +1,12 @@
 package com.github.kisaragimikoto.tacticalbackpack.item;
 
 import com.github.kisaragimikoto.tacticalbackpack.compat.curios.CuriosIntegration;
+import com.github.kisaragimikoto.tacticalbackpack.compat.storage.ExternalItemHandlerLinkData;
 import com.github.kisaragimikoto.tacticalbackpack.energy.BackpackEnergyProvider;
 import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackEnderStorage;
 import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackInventory;
 import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackContents;
+import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackAttachmentHelper;
 import com.github.kisaragimikoto.tacticalbackpack.facility.BackpackFacility;
 import com.github.kisaragimikoto.tacticalbackpack.facility.BackpackFacilityResolver;
 import com.github.kisaragimikoto.tacticalbackpack.menu.TacticalBackpackMenu;
@@ -17,6 +19,7 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -24,10 +27,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.network.NetworkHooks;
 
@@ -46,6 +55,19 @@ public class TacticalBackpackItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
+        // Shift + right click in the air removes only the generic external-storage link.
+        // AE2 keeps its own independent link data and is not touched here.
+        if (player.isShiftKeyDown() && ExternalItemHandlerLinkData.load(stack).isPresent()) {
+            if (!level.isClientSide) {
+                ExternalItemHandlerLinkData.clear(stack);
+                player.displayClientMessage(
+                        Component.translatable("message.tacticalbackpack.external_storage.unlinked"),
+                        true
+                );
+            }
+            return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+        }
+
         if (level.isClientSide) {
             return InteractionResultHolder.success(stack);
         }
@@ -59,7 +81,7 @@ public class TacticalBackpackItem extends Item {
                 new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return Component.literal("Tactical Backpack");
+                        return Component.empty();
                     }
 
                     @Override
@@ -71,6 +93,92 @@ public class TacticalBackpackItem extends Item {
         );
 
         return InteractionResultHolder.consume(stack);
+    }
+
+    /**
+     * Shift + right click a block that exposes Forge's ITEM_HANDLER capability
+     * to register it as the generic external overflow destination.
+     */
+    @Override
+    public InteractionResult useOn(UseOnContext context) {
+        Player player = context.getPlayer();
+        if (player == null || !player.isShiftKeyDown()) {
+            return InteractionResult.PASS;
+        }
+
+        Level level = context.getLevel();
+        BlockPos pos = context.getClickedPos();
+        BlockEntity blockEntity = level.getBlockEntity(pos);
+        if (blockEntity == null) {
+            return InteractionResult.PASS;
+        }
+
+        Direction linkedSide = context.getClickedFace();
+        boolean hasHandler = blockEntity
+                .getCapability(ForgeCapabilities.ITEM_HANDLER, linkedSide)
+                .isPresent();
+
+        // Some storage blocks only expose an unsided capability.
+        if (!hasHandler) {
+            hasHandler = blockEntity
+                    .getCapability(ForgeCapabilities.ITEM_HANDLER, null)
+                    .isPresent();
+            if (hasHandler) {
+                linkedSide = null;
+            }
+        }
+
+        if (!hasHandler) {
+            if (!level.isClientSide) {
+                player.displayClientMessage(
+                        Component.translatable("message.tacticalbackpack.external_storage.invalid"),
+                        true
+                );
+            }
+            return InteractionResult.PASS;
+        }
+
+        if (!level.isClientSide) {
+            ExternalItemHandlerLinkData.save(
+                    context.getItemInHand(),
+                    level.dimension().location(),
+                    pos,
+                    linkedSide
+            );
+
+            Component sideText = linkedSide == null
+                    ? Component.translatable("message.tacticalbackpack.external_storage.unsided")
+                    : Component.literal(linkedSide.getName());
+
+            player.displayClientMessage(
+                    Component.translatable(
+                            "message.tacticalbackpack.external_storage.linked",
+                            pos.getX(), pos.getY(), pos.getZ(), sideText
+                    ),
+                    true
+            );
+        }
+
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, level, tooltip, flag);
+
+        ExternalItemHandlerLinkData.load(stack).ifPresent(link -> {
+            String side = link.sideName() == null || link.sideName().isBlank()
+                    ? Component.translatable("message.tacticalbackpack.external_storage.unsided").getString()
+                    : link.sideName();
+
+            BlockPos pos = link.pos();
+            tooltip.add(Component.translatable(
+                    "tooltip.tacticalbackpack.external_storage",
+                    link.dimensionId(),
+                    pos.getX(), pos.getY(), pos.getZ(),
+                    side
+            ));
+        });
     }
 
     @Override
@@ -171,15 +279,15 @@ public class TacticalBackpackItem extends Item {
     }
 
     public static boolean hasAutoPickupModule(ItemStack stack) {
-        return BackpackContents.anyMatch(stack, child -> child.is(ModItems.AUTO_PICKUP_MODULE.get()));
+        return BackpackAttachmentHelper.hasInstalled(stack, ModItems.AUTO_PICKUP_MODULE.get());
     }
 
     public static boolean hasFilterModule(ItemStack stack) {
-        return BackpackContents.anyMatch(stack, child -> child.is(ModItems.FILTER_MODULE.get()));
+        return BackpackAttachmentHelper.hasInstalled(stack, ModItems.FILTER_MODULE.get());
     }
 
     public static boolean hasSortModule(ItemStack stack) {
-        return BackpackContents.anyMatch(stack, child -> child.is(ModItems.SORT_MODULE.get()));
+        return BackpackAttachmentHelper.hasInstalled(stack, ModItems.SORT_MODULE.get());
     }
 
     public static boolean hasWorkbenchModule(ItemStack stack) {
@@ -187,7 +295,7 @@ public class TacticalBackpackItem extends Item {
     }
 
     public static boolean hasGunWorkbenchModule(ItemStack stack) {
-        return BackpackContents.anyMatch(stack, child -> child.is(ModItems.GUN_WORKBENCH_MODULE.get()));
+        return BackpackAttachmentHelper.hasInstalled(stack, ModItems.GUN_WORKBENCH_MODULE.get());
     }
 
     public static boolean hasEnergyCell(ItemStack stack) {

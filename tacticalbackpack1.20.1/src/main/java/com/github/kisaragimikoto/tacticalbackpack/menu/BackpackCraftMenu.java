@@ -42,12 +42,12 @@ public class BackpackCraftMenu extends AbstractContainerMenu {
         this.craftMatrix = new BackpackCraftingInventory(this);
 
         // Result slot
-        this.addSlot(new BackpackResultSlot(owner, craftMatrix, craftResult, 0, 122, 48));
+        this.addSlot(new BackpackResultSlot(owner, craftMatrix, craftResult, 0, 124, 62));
 
         // 3x3 crafting grid
         final int craftStartX = 31;
-        final int craftStartY = 48;
-        final int craftGap = 16;
+        final int craftStartY = 44;
+        final int craftGap = 18;
 
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
@@ -61,9 +61,9 @@ public class BackpackCraftMenu extends AbstractContainerMenu {
         }
 
         // Backpack storage
-        final int storageStartX = 8;
-        final int storageStartY = 84;
-        final int storageGap = 16;
+        final int storageStartX = 7;
+        final int storageStartY = 112;
+        final int storageGap = 18;
 
         int storageSize = BackpackInventory.getStorageSize(backpackStack);
         int maxStorageSlots = Math.min(storageSize, 54);
@@ -81,9 +81,9 @@ public class BackpackCraftMenu extends AbstractContainerMenu {
         }
 
         // Player inventory
-        final int invStartX = 8;
-        final int invStartY = 160;
-        final int invGap = 16;
+        final int invStartX = 7;
+        final int invStartY = 218;
+        final int invGap = 18;
 
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
@@ -97,7 +97,7 @@ public class BackpackCraftMenu extends AbstractContainerMenu {
         }
 
         // Hotbar
-        final int hotbarY = 214;
+        final int hotbarY = 276;
 
         for (int col = 0; col < 9; col++) {
             this.addSlot(new Slot(
@@ -196,7 +196,7 @@ public class BackpackCraftMenu extends AbstractContainerMenu {
             case BackpackTabs.UPGRADES -> provider("Backpack Upgrades", (windowId, inv, p) ->
                     new BackpackUpgradesMenu(windowId, inv, backpackStack));
 
-            case BackpackTabs.EQUIPMENT -> provider("Backpack Equipment", (windowId, inv, p) ->
+            case BackpackTabs.EQUIPMENT -> provider("Backpack Attachments", (windowId, inv, p) ->
                     new BackpackEquipmentMenu(windowId, inv, backpackStack));
 
             default -> null;

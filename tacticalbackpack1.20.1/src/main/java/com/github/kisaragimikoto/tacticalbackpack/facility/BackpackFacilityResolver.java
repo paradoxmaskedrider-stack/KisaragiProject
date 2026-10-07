@@ -1,6 +1,7 @@
 package com.github.kisaragimikoto.tacticalbackpack.facility;
 
 import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackContents;
+import com.github.kisaragimikoto.tacticalbackpack.inventory.BackpackAttachmentHelper;
 import com.github.kisaragimikoto.tacticalbackpack.item.TacticalBackpackItem;
 import com.github.kisaragimikoto.tacticalbackpack.registry.ModItems;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +19,7 @@ public final class BackpackFacilityResolver {
         }
 
         if (facility == BackpackFacility.CRAFTING
-                && BackpackContents.anyMatch(rootBackpack, stack -> stack.is(ModItems.WORKBENCH_MODULE.get()))) {
+                && BackpackAttachmentHelper.hasInstalled(rootBackpack, ModItems.WORKBENCH_MODULE.get())) {
             return true;
         }
 

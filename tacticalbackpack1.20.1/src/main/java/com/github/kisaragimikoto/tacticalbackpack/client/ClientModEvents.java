@@ -13,7 +13,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public final class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> MenuScreens.register(ModMenus.BACKPACK.get(), TacticalBackpackScreen::new));
+        event.enqueueWork(() -> {
+            MenuScreens.register(ModMenus.BACKPACK.get(), TacticalBackpackScreen::new);
+            MenuScreens.register(ModMenus.BACKPACK_CRAFT.get(), BackpackCraftScreen::new);
+            MenuScreens.register(ModMenus.BACKPACK_POCKET.get(), BackpackPocketScreen::new);
+            MenuScreens.register(ModMenus.BACKPACK_UPGRADES.get(), BackpackUpgradesScreen::new);
+            MenuScreens.register(ModMenus.BACKPACK_EQUIPMENT.get(), BackpackEquipmentScreen::new);
+        });
     }
 
     private ClientModEvents() { }

@@ -10,7 +10,7 @@ import net.minecraft.world.item.ItemStack;
 
 /** ItemStack-backed backpack inventory. The owning stack is updated whenever a slot changes. */
 public class BackpackInventory extends SimpleContainer {
-    public static final int EQUIPMENT_SLOT_COUNT = 6;
+    public static final int EQUIPMENT_SLOT_COUNT = 18;
     public static final int UPGRADE_SLOT_COUNT = 3;
     public static final int SPECIAL_SLOT_COUNT = EQUIPMENT_SLOT_COUNT + UPGRADE_SLOT_COUNT;
     public static final String INVENTORY_TAG = "BackpackInventory";
@@ -42,19 +42,24 @@ public class BackpackInventory extends SimpleContainer {
         CompoundTag tag = stack.getTag();
         if (tag != null) {
             base += Math.max(0, tag.getInt("ExtraSlots"));
-            base += getUpgradeBonus(tag);
+            base += getAttachmentCapacityBonus(tag);
         }
-        return Math.max(9, Math.min(base, 50000 - SPECIAL_SLOT_COUNT));
+        int configuredMax = Math.max(9, BackpackConfig.MAX_STORAGE_SLOTS.get());
+        return Math.max(9, Math.min(base, configuredMax));
     }
 
-    private static int getUpgradeBonus(CompoundTag tag) {
+    private static int getAttachmentCapacityBonus(CompoundTag tag) {
         int bonus = 0;
-        ListTag list = tag.getList(INVENTORY_TAG, Tag.TAG_COMPOUND);
+        if (!tag.contains(BackpackAttachmentContainer.ATTACHMENTS_TAG, Tag.TAG_LIST)) return 0;
+
+        ListTag list = tag.getList(BackpackAttachmentContainer.ATTACHMENTS_TAG, Tag.TAG_COMPOUND);
         for (int i = 0; i < list.size(); i++) {
-            CompoundTag itemTag = list.getCompound(i);
-            ItemStack item = ItemStack.of(itemTag);
-            if (item.is(ModItems.SIZE_UPGRADE_1.get())) bonus += 27;
-            else if (item.is(ModItems.SIZE_UPGRADE_2.get())) bonus += 54;
+            ItemStack item = ItemStack.of(list.getCompound(i));
+            if (item.is(ModItems.SIZE_UPGRADE_1.get())) {
+                bonus += BackpackConfig.SIZE_UPGRADE_1_BONUS.get();
+            } else if (item.is(ModItems.SIZE_UPGRADE_2.get())) {
+                bonus += BackpackConfig.SIZE_UPGRADE_2_BONUS.get();
+            }
         }
         return bonus;
     }

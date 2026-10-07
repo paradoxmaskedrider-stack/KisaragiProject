@@ -89,7 +89,7 @@ public class BackpackUpgradesMenu extends AbstractContainerMenu {
             case BackpackTabs.UPGRADES -> provider("Backpack Upgrades", (windowId, inv, p) ->
                     new BackpackUpgradesMenu(windowId, inv, backpackStack));
 
-            case BackpackTabs.EQUIPMENT -> provider("Backpack Equipment", (windowId, inv, p) ->
+            case BackpackTabs.EQUIPMENT -> provider("Backpack Attachments", (windowId, inv, p) ->
                     new BackpackEquipmentMenu(windowId, inv, backpackStack));
 
             default -> null;

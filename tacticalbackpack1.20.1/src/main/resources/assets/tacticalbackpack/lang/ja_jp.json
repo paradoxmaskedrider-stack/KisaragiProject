@@ -75,5 +75,18 @@
   "item.tacticalbackpack.backpack_return_device": "バックパック帰還装置",
   "item.tacticalbackpack.backpack_zone_controller": "バックパックゾーン制御装置",
   "item.tacticalbackpack.backpack_zone_remover": "バックパックゾーン解除装置",
-  "block.tacticalbackpack.backpack_trade_terminal": "バックパック取引端末"
+  "block.tacticalbackpack.backpack_trade_terminal": "バックパック取引端末",
+  "screen.tacticalbackpack.tab.attachments": "装着",
+  "screen.tacticalbackpack.section.craft": "クラフト",
+  "screen.tacticalbackpack.section.pocket": "ポケット空間",
+  "screen.tacticalbackpack.section.upgrades": "アップグレード",
+  "screen.tacticalbackpack.section.attachments": "アタッチメント",
+  "screen.tacticalbackpack.storage.page": "ページ",
+  "screen.tacticalbackpack.storage.go": "移動",
+  "screen.tacticalbackpack.storage.page_status": "ページ %1$s / %2$s  [%3$s-%4$s / %5$s枠]",
+  "message.tacticalbackpack.external_storage.linked": "外部ストレージをリンクしました: %1$s, %2$s, %3$s / 面: %4$s",
+  "message.tacticalbackpack.external_storage.unlinked": "外部ストレージのリンクを解除しました。",
+  "message.tacticalbackpack.external_storage.invalid": "このブロックはアイテムストレージとしてリンクできません。",
+  "message.tacticalbackpack.external_storage.unsided": "面指定なし",
+  "tooltip.tacticalbackpack.external_storage": "外部収納: %1$s [%2$s, %3$s, %4$s] / %5$s"
 }

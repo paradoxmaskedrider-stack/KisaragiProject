@@ -1,6 +1,7 @@
 package com.github.kisaragimikoto.tacticalbackpack.inventory;
 
 import com.github.kisaragimikoto.tacticalbackpack.item.TacticalBackpackItem;
+import com.github.kisaragimikoto.tacticalbackpack.config.BackpackConfig;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.HashSet;
@@ -65,6 +66,6 @@ public final class BackpackContents {
                 total += countStorageSlots(child, visited, depth + 1);
             }
         }
-        return Math.min(total, 50000);
+        return Math.min(total, Math.max(9, BackpackConfig.MAX_STORAGE_SLOTS.get()));
     }
 }

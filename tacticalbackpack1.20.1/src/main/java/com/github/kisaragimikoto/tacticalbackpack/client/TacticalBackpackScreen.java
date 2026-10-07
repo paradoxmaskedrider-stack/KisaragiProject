@@ -27,12 +27,17 @@ public final class TacticalBackpackScreen extends AbstractContainerScreen<Tactic
     private final Button[] meItemButtons = new Button[ME_ROWS];
     private EditBox searchBox;
     private EditBox amountBox;
+    private EditBox storagePageBox;
+    private Button storageFirstButton;
+    private Button storagePreviousButton;
+    private Button storageNextButton;
+    private Button storageLastButton;
 
     public TacticalBackpackScreen(TacticalBackpackMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
         this.imageWidth = LEFT_PANEL_WIDTH + PANEL_GAP + AE2_PANEL_WIDTH;
         int normalHeight = 30 + menu.getRows() * 18 + 14 + 58 + 24;
-        this.imageHeight = Math.max(normalHeight, 252);
+        this.imageHeight = Math.max(normalHeight, 270);
         this.inventoryLabelY = 30 + menu.getRows() * 18 + 2;
     }
 
@@ -45,7 +50,9 @@ public final class TacticalBackpackScreen extends AbstractContainerScreen<Tactic
         addTab(BackpackTabs.CRAFT, leftPos + 39, tabY, "screen.tacticalbackpack.tab.craft");
         addTab(BackpackTabs.POCKET, leftPos + 72, tabY, "screen.tacticalbackpack.tab.pocket");
         addTab(BackpackTabs.UPGRADES, leftPos + 105, tabY, "screen.tacticalbackpack.tab.upgrades");
-        addTab(BackpackTabs.EQUIPMENT, leftPos + 138, tabY, "screen.tacticalbackpack.tab.equipment");
+        addTab(BackpackTabs.EQUIPMENT, leftPos + 138, tabY, "screen.tacticalbackpack.tab.attachments");
+
+        initStoragePageControls();
 
         int panelX = leftPos + LEFT_PANEL_WIDTH + PANEL_GAP + 6;
         int width = AE2_PANEL_WIDTH - 12;
@@ -125,6 +132,77 @@ public final class TacticalBackpackScreen extends AbstractContainerScreen<Tactic
         requestPage(0);
     }
 
+    private void initStoragePageControls() {
+        int y = topPos + imageHeight - 20;
+        storageFirstButton = addRenderableWidget(Button.builder(Component.literal("<<"),
+                button -> changeStoragePage(TacticalBackpackMenu.BUTTON_PAGE_FIRST))
+                .bounds(leftPos + 8, y, 22, 16).build());
+        storagePreviousButton = addRenderableWidget(Button.builder(Component.literal("<"),
+                button -> changeStoragePage(TacticalBackpackMenu.BUTTON_PAGE_PREVIOUS))
+                .bounds(leftPos + 32, y, 22, 16).build());
+
+        storagePageBox = new EditBox(font, leftPos + 57, y, 36, 16,
+                Component.translatable("screen.tacticalbackpack.storage.page"));
+        storagePageBox.setMaxLength(6);
+        storagePageBox.setValue(Integer.toString(menu.getCurrentPage() + 1));
+        addRenderableWidget(storagePageBox);
+
+        addRenderableWidget(Button.builder(Component.translatable("screen.tacticalbackpack.storage.go"),
+                button -> jumpToStoragePage())
+                .bounds(leftPos + 96, y, 25, 16).build());
+
+        storageNextButton = addRenderableWidget(Button.builder(Component.literal(">"),
+                button -> changeStoragePage(TacticalBackpackMenu.BUTTON_PAGE_NEXT))
+                .bounds(leftPos + 124, y, 20, 16).build());
+        storageLastButton = addRenderableWidget(Button.builder(Component.literal(">>"),
+                button -> changeStoragePage(TacticalBackpackMenu.BUTTON_PAGE_LAST))
+                .bounds(leftPos + 146, y, 22, 16).build());
+
+        boolean show = menu.getTotalPages() > 1;
+        storageFirstButton.visible = show;
+        storagePreviousButton.visible = show;
+        storagePageBox.visible = show;
+        storageNextButton.visible = show;
+        storageLastButton.visible = show;
+    }
+
+    private void changeStoragePage(int buttonId) {
+        Minecraft minecraft = Minecraft.getInstance();
+        if (minecraft.gameMode != null) {
+            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, buttonId);
+        }
+    }
+
+    private void jumpToStoragePage() {
+        if (storagePageBox == null) return;
+        try {
+            int page = Integer.parseInt(storagePageBox.getValue().trim());
+            page = Math.max(1, Math.min(page, menu.getTotalPages()));
+            changeStoragePage(TacticalBackpackMenu.BUTTON_PAGE_JUMP_BASE + page - 1);
+        } catch (NumberFormatException ignored) {
+            storagePageBox.setValue(Integer.toString(menu.getCurrentPage() + 1));
+        }
+    }
+
+    private void updateStoragePageControls() {
+        if (storagePageBox == null) return;
+        boolean show = menu.getTotalPages() > 1;
+        storageFirstButton.visible = show;
+        storagePreviousButton.visible = show;
+        storagePageBox.visible = show;
+        storageNextButton.visible = show;
+        storageLastButton.visible = show;
+        storageFirstButton.active = menu.hasPreviousPage();
+        storagePreviousButton.active = menu.hasPreviousPage();
+        storageNextButton.active = menu.hasNextPage();
+        storageLastButton.active = menu.hasNextPage();
+
+        if (!storagePageBox.isFocused()) {
+            String expected = Integer.toString(menu.getCurrentPage() + 1);
+            if (!expected.equals(storagePageBox.getValue())) storagePageBox.setValue(expected);
+        }
+    }
+
     private void addTab(int id, int x, int y, String translationKey) {
         addRenderableWidget(Button.builder(Component.translatable(translationKey), button -> {
             Minecraft minecraft = Minecraft.getInstance();
@@ -184,10 +262,12 @@ public final class TacticalBackpackScreen extends AbstractContainerScreen<Tactic
 
         int storageY = top + 30;
         int visible = menu.getVisibleStorageSlots();
+        int activeOnPage = menu.getCurrentPageSlotCount();
         for (int slot = 0; slot < visible; slot++) {
             int x = left + 8 + (slot % 9) * 18;
             int y = storageY + (slot / 9) * 18;
-            drawSlotBox(guiGraphics, x, y);
+            if (slot < activeOnPage) drawSlotBox(guiGraphics, x, y);
+            else drawDisabledSlotBox(guiGraphics, x, y);
         }
 
         int playerInventoryY = storageY + menu.getRows() * 18 + 14;
@@ -207,10 +287,22 @@ public final class TacticalBackpackScreen extends AbstractContainerScreen<Tactic
         guiGraphics.fill(x, y, x + 16, y + 16, 0xFF242424);
     }
 
+    private static void drawDisabledSlotBox(GuiGraphics guiGraphics, int x, int y) {
+        guiGraphics.fill(x - 1, y - 1, x + 17, y + 17, 0xFF3C3C3C);
+        guiGraphics.fill(x, y, x + 16, y + 16, 0xFF151515);
+    }
+
     @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        guiGraphics.drawString(font, title, 8, 20, 0xFFFFFF, false);
         guiGraphics.drawString(font, playerInventoryTitle, 8, inventoryLabelY, 0xD0D0D0, false);
+
+        if (menu.getTotalPages() > 1) {
+            Component storagePage = Component.translatable("screen.tacticalbackpack.storage.page_status",
+                    menu.getCurrentPage() + 1, menu.getTotalPages(),
+                    menu.getPageStartIndex() + 1, menu.getPageStartIndex() + menu.getCurrentPageSlotCount(),
+                    menu.getStorageSize());
+            guiGraphics.drawCenteredString(font, storagePage, LEFT_PANEL_WIDTH / 2, imageHeight - 31, 0xD0D0D0);
+        }
 
         int panelX = LEFT_PANEL_WIDTH + PANEL_GAP + 8;
         guiGraphics.drawString(font, Component.translatable("screen.tacticalbackpack.ae2.title"),
@@ -263,6 +355,7 @@ public final class TacticalBackpackScreen extends AbstractContainerScreen<Tactic
 
     @Override
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+        updateStoragePageControls();
         updateMEButtons();
         renderBackground(guiGraphics);
         super.render(guiGraphics, mouseX, mouseY, partialTick);

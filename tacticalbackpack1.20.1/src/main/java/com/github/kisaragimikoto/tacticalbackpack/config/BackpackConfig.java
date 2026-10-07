@@ -7,6 +7,19 @@ public class BackpackConfig {
     public static final ForgeConfigSpec SPEC;
 
     public static final ForgeConfigSpec.IntValue BACKPACK_SIZE;
+    public static final ForgeConfigSpec.IntValue MAX_STORAGE_SLOTS;
+    public static final ForgeConfigSpec.IntValue SIZE_UPGRADE_1_BONUS;
+    public static final ForgeConfigSpec.IntValue SIZE_UPGRADE_2_BONUS;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_AUTO_OVERFLOW;
+    public static final ForgeConfigSpec.IntValue OVERFLOW_KEEP_FREE_SLOTS;
+    public static final ForgeConfigSpec.BooleanValue OVERFLOW_TO_AE2;
+    public static final ForgeConfigSpec.BooleanValue OVERFLOW_TO_ITEM_HANDLER;
+    public static final ForgeConfigSpec.IntValue OVERFLOW_CHECK_INTERVAL_TICKS;
+    public static final ForgeConfigSpec.BooleanValue OVERFLOW_SKIP_NESTED_BACKPACKS;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_PICKUP_OVERFLOW;
+    public static final ForgeConfigSpec.BooleanValue PICKUP_OVERFLOW_REQUIRES_AUTO_PICKUP_MODULE;
+    public static final ForgeConfigSpec.BooleanValue PICKUP_OVERFLOW_TO_AE2;
+    public static final ForgeConfigSpec.BooleanValue PICKUP_OVERFLOW_TO_EXTERNAL_STORAGE;
     public static final ForgeConfigSpec.BooleanValue ENABLE_ELYTRA;
     public static final ForgeConfigSpec.BooleanValue ENABLE_EPICFIGHT;
     public static final ForgeConfigSpec.BooleanValue ENABLE_TCONSTRUCT;
@@ -26,8 +39,60 @@ public class BackpackConfig {
         builder.push("Tactical Backpack");
 
         BACKPACK_SIZE = builder
-                .comment("Backpack size")
+                .comment("Base internal backpack storage slots before capacity upgrades.")
                 .defineInRange("size", 54, 9, 50000);
+
+        MAX_STORAGE_SLOTS = builder
+                .comment("Maximum internal storage slots after all capacity upgrades. The UI will page large inventories.")
+                .defineInRange("maxStorageSlots", 50000, 9, 50000);
+
+        SIZE_UPGRADE_1_BONUS = builder
+                .comment("Storage slots added by one Size Upgrade I attachment.")
+                .defineInRange("sizeUpgrade1Bonus", 27, 0, 50000);
+
+        SIZE_UPGRADE_2_BONUS = builder
+                .comment("Storage slots added by one Size Upgrade II attachment.")
+                .defineInRange("sizeUpgrade2Bonus", 54, 0, 50000);
+
+        ENABLE_AUTO_OVERFLOW = builder
+                .comment("Master switch for automatic overflow routing. Provider-specific routing is applied only when supported and linked.")
+                .define("enableAutoOverflow", true);
+
+        OVERFLOW_KEEP_FREE_SLOTS = builder
+                .comment("Try to keep at least this many internal slots free by routing excess items to linked storage providers.")
+                .defineInRange("overflowKeepFreeSlots", 9, 0, 50000);
+
+        OVERFLOW_TO_AE2 = builder
+                .comment("Allow a linked AE2 network to be used as an automatic overflow destination.")
+                .define("overflowToAE2", true);
+
+        OVERFLOW_TO_ITEM_HANDLER = builder
+                .comment("Allow a linked Forge IItemHandler block (including many Create/Mekanism storage blocks) as an overflow destination.")
+                .define("overflowToItemHandler", true);
+
+        OVERFLOW_CHECK_INTERVAL_TICKS = builder
+                .comment("How often, in server ticks, automatic overflow checks run for carried backpacks. 20 ticks = 1 second.")
+                .defineInRange("overflowCheckIntervalTicks", 20, 1, 1200);
+
+        OVERFLOW_SKIP_NESTED_BACKPACKS = builder
+                .comment("Do not automatically send TacticalBackpack items stored inside another backpack to external storage.")
+                .define("overflowSkipNestedBackpacks", true);
+
+        ENABLE_PICKUP_OVERFLOW = builder
+                .comment("When the normal player inventory is full, route picked-up items into carried TacticalBackpacks instead of leaving them on the ground.")
+                .define("enablePickupOverflow", true);
+
+        PICKUP_OVERFLOW_REQUIRES_AUTO_PICKUP_MODULE = builder
+                .comment("Require an Auto Pickup Module in a backpack before that backpack can receive pickup overflow.")
+                .define("pickupOverflowRequiresAutoPickupModule", true);
+
+        PICKUP_OVERFLOW_TO_AE2 = builder
+                .comment("Legacy compatibility option. AE2 participation is still controlled by overflowToAE2.")
+                .define("pickupOverflowToAE2", true);
+
+        PICKUP_OVERFLOW_TO_EXTERNAL_STORAGE = builder
+                .comment("When a pickup-overflow backpack is full, route the remainder through all linked external storage providers.")
+                .define("pickupOverflowToExternalStorage", true);
 
         ENABLE_ELYTRA = builder
                 .define("enableElytra", true);
