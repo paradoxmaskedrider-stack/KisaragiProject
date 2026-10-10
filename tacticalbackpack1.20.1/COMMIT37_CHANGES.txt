@@ -1,0 +1,12 @@
+TacticalBackpack commit37
+=========================
+
+Crafting tab layout fix:
+- Moved the 3x3 crafting grid to a dedicated upper area.
+- Moved crafting result slot to align with the grid.
+- Moved backpack storage below the crafting area.
+- Moved player inventory and hotbar farther down.
+- Increased crafting screen height to 304 pixels.
+- Changed crafting/storage/player slot spacing from 16 to 18 pixels so slot borders do not overlap.
+
+No inventory/NBT format changes.

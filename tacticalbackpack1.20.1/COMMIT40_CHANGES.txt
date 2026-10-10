@@ -1,0 +1,19 @@
+TacticalBackpack commit40
+=========================
+
+ForgeGradle 7 / Gradle 9.8.0 AE2 development-runtime fix.
+
+Changes:
+- AE2 and GuideME are now declared with renamer.dependency(...), not plain implementation.
+- Renamer global mappings now use minecraft.dependency.toSrgFile, matching the official FG7
+  obfuscation example for Minecraft 1.20.4 and older.
+- Keeps runtime Mixin refmap remapping enabled for AE2 soft references.
+
+Reason:
+Plain implementation left AE2's production SRG hard references untouched in the dev environment.
+That caused PickColorMixin to fail on @Shadow field f_91074_ while targeting the official-mapped
+net.minecraft.client.Minecraft class.
+
+Test:
+  .\gradlew.bat clean
+  .\gradlew.bat runClient

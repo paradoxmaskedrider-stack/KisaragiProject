@@ -1,0 +1,14 @@
+TacticalBackpack commit34
+
+- Added ExternalStorageProvider abstraction and ordered ExternalStorageRouter.
+- Existing AE2 overflow is now exposed as an external storage provider.
+- Added generic Forge IItemHandler provider for linked block storage.
+  This can cover many Create, Mekanism, and other Forge storage blocks without a hard API dependency.
+- Added generic external item-handler link metadata (dimension/block/side) on the backpack.
+- Periodic free-slot reserve now routes through all available providers instead of AE2 only.
+- Pickup overflow can route through all available external providers.
+- Added config: overflowToItemHandler=true
+- Added config: pickupOverflowToExternalStorage=true
+- Kept legacy pickupOverflowToAE2 config for compatibility.
+
+Note: commit34 adds the generic provider/link backend. In-game target selection/link UI for generic IItemHandler storage is the next step.

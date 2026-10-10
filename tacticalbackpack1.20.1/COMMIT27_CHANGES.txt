@@ -1,0 +1,8 @@
+TacticalBackpack commit27
+
+- Expanded attachment capacity from 6 to 18 slots.
+- Attachment UI now uses a compact 6 x 3 grid.
+- Kept the player inventory/hotbar positions unchanged.
+- SPECIAL_SLOT_COUNT now automatically reserves 18 attachment slots + 3 upgrade slots.
+
+Note: this commit follows the user preference that 12 slots was acceptable but a little more room was desired.

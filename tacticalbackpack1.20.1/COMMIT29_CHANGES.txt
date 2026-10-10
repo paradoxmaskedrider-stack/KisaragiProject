@@ -1,0 +1,15 @@
+TacticalBackpack commit29
+
+Paged large-capacity backpack UI
+- Main storage now uses a fixed 54-slot page window instead of exposing only the first 54 slots.
+- Added synchronized storage page state between server and client.
+- Added first / previous / next / last page controls.
+- Added direct page number jump for very large capacities (for example, 50,000 slots = 926 pages).
+- Added page status showing current page, slot range, and total configured storage slots.
+- Final partial page renders out-of-range cells as disabled and rejects insertion/pickup there.
+- Shift-click operations target the currently visible storage page.
+- No NBT format change: existing backpack inventory data remains under BackpackInventory and page switching only changes the UI window.
+
+Next
+- Wire BackpackOverflowPolicy to AE2 as the first automatic overflow provider.
+- Then add generic/provider adapters for other supported storage mods where safe.

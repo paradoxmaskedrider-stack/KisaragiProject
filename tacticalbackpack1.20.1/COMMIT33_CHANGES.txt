@@ -1,0 +1,12 @@
+TacticalBackpack commit33 - Functional attachment installation
+
+Changes:
+- Added BackpackAttachmentHelper.
+- Attachment modules are active only when installed in dedicated attachment slots.
+- Normal storage no longer activates Auto Pickup / Filter / Sort / Workbench / Gun Workbench modules.
+- Added shift-click installation from player inventory into the 18 attachment slots.
+- Added shift-click removal from attachment slots back to player inventory.
+- Direct drag-and-drop remains supported.
+- Nested TacticalBackpacks contribute only their installed attachments.
+- Attachment slots accept Auto Pickup, Filter, Sort, Pocket Core, Stability, Workbench, Gun Workbench and Memory Card.
+- Size upgrades remain handled by the Upgrades tab.

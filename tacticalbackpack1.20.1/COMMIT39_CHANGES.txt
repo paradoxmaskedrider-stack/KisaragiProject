@@ -1,0 +1,14 @@
+TacticalBackpack commit39 - Gradle 9.8.0 / ForgeGradle 7 migration
+
+- Gradle Wrapper: 9.8.0
+- ForgeGradle: 7.0.40
+- Foojay toolchain resolver: 1.0.0
+- Added Forge Renamer 1.1.2 for Minecraft 1.20.1 production obfuscation
+- Migrated FG6 minecraft dependency to FG7 minecraft.dependency(...)
+- Migrated run configurations to FG7 register(...) DSL
+- Added FG7 Mavenizer / Forge / Minecraft library repositories
+- Removed FG6-only fg.deobf and reobfJar configuration
+- Kept Java toolchain at 17 because Minecraft 1.20.1 targets Java 17
+
+Note: ForgeGradle 7 currently does not provide the old fg.deobf API for external mod dependencies.
+AE2 and GuideME are therefore declared as normal development dependencies.

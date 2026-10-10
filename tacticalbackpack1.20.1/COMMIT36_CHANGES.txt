@@ -1,0 +1,11 @@
+TacticalBackpack commit36
+=========================
+
+Capacity attachments in the Attachments tab:
+- SIZE_UPGRADE_1 and SIZE_UPGRADE_2 are now valid attachment items.
+- They can be installed by drag-and-drop or Shift-click into the 18 attachment slots.
+- Capacity bonus is active only while the upgrade is installed.
+- Capacity still uses sizeUpgrade1Bonus / sizeUpgrade2Bonus and maxStorageSlots config values.
+- Attachment storage is moved to a fixed BackpackAttachments NBT list, separate from the variable-size main inventory.
+- This prevents attachment slots from shifting/disappearing when the capacity changes.
+- Nested backpack attachment checks use the same stable attachment storage.

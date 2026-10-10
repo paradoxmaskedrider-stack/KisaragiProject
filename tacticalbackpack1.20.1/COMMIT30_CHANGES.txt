@@ -1,0 +1,13 @@
+TacticalBackpack commit30 - AE2 automatic overflow
+
+- Added server-side AE2 overflow checks for carried backpacks.
+- A linked backpack starts offloading when its empty storage slots are at/below overflowKeepFreeSlots.
+- Overflow moves only complete stacks that AE2 simulation says it can fully accept.
+- Items are removed from the backpack only after AE2 reports a successful real insertion.
+- Drains from high slot indexes first so early UI pages stay stable.
+- Nested TacticalBackpack items are skipped by default.
+- Added overflowCheckIntervalTicks config (default 20).
+- Added overflowSkipNestedBackpacks config (default true).
+- Existing manual Push All / Pull behavior remains unchanged.
+
+Next planned step: player-inventory / pickup routing into backpack and provider-neutral overflow adapters for Mekanism/Create/IItemHandler.

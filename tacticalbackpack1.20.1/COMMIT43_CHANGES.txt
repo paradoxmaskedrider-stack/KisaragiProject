@@ -1,0 +1,17 @@
+TacticalBackpack commit43
+=========================
+
+Fixes the commit42 compilation failure in BackpackPocketChunkLoader.
+
+Changes:
+- BackpackPocketDimension.getPocketPos(...) is now called with the actual
+  Tactical Backpack ItemStack instead of Player.
+- Resolves the interior backpack by TB_InteriorBackpackId first, then falls
+  back to the player's carried Tactical Backpack.
+- Forces/releases the chunk in ModDimensions.BACKPACK_INNER_WORLD directly,
+  rather than accidentally using the player's current dimension.
+- Keeps backpack-per-room positioning intact.
+
+Expected result:
+- The two "Player cannot be converted to ItemStack" compile errors are gone.
+- Existing seven deprecation/removal messages remain warnings only.

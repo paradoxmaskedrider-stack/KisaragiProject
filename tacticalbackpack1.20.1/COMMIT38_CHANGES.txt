@@ -1,0 +1,16 @@
+TacticalBackpack commit38
+=========================
+
+Gradle wrapper target updated from the local project's previous 8.8 line to Gradle 8.14.5.
+
+Why 8.14.5 instead of Gradle 9.x:
+- This project is still based on ForgeGradle 6.x for Minecraft Forge 1.20.1.
+- Gradle 9.x would require a much larger ForgeGradle/toolchain migration and is not a safe wrapper-only update.
+- 8.14.5 is the newest Gradle 8 maintenance release and keeps the project on the Gradle 8 compatibility line.
+
+After applying this patch, run:
+  .\gradlew.bat --version
+  .\gradlew.bat clean
+  .\gradlew.bat runClient
+
+If the local wrapper files are missing, regenerate them from the project root with an installed Gradle 8.14.5 or keep the existing gradle-wrapper.jar / gradlew / gradlew.bat and replace only gradle-wrapper.properties.

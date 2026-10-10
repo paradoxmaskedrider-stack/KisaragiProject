@@ -1,0 +1,17 @@
+TacticalBackpack commit28
+
+Capacity/overflow foundation
+- Added configurable maximum internal storage slot count (default 50000).
+- Size Upgrade I/II slot bonuses are now configurable (defaults 27 / 54).
+- BackpackInventory clamps upgraded capacity to maxStorageSlots instead of a hard-coded limit.
+- Added automatic-overflow policy config foundation:
+  - enableAutoOverflow
+  - overflowKeepFreeSlots
+  - overflowToAE2
+- Added BackpackOverflowPolicy as a loader-safe central policy for upcoming provider adapters.
+- Nested backpack capacity accounting now respects configured maximum.
+
+Important
+- TacticalBackpackMenu currently exposes up to 54 storage slots at once.
+- A paged 54-slots-per-page UI is the next required step before very large internal capacities are practical.
+- commit28 does not yet automatically move picked-up items into AE2; it establishes the config/policy layer for that routing.

@@ -1,0 +1,30 @@
+TacticalBackpack commit42
+=========================
+
+Backpack interior redesign:
+- Removed the visible "Pocket / 空間" tab from backpack GUIs.
+- Added a separate "Enter Backpack Interior" action above the backpack GUI.
+- The interior is a physical room in tacticalbackpack:backpack_inner_world, not another storage page.
+- Each Tactical Backpack gets a stable room position based on its BackpackId.
+- Rooms generate only once using a hidden marker below the floor, so player remodeling persists.
+- Initial workshop facilities:
+  * Backpack Trade Terminal
+  * Crafting Table
+  * Smithing Table
+  * Brewing Stand
+  * Anvil
+  * Grindstone
+  * Furnace / Blast Furnace / Smoker
+  * Stonecutter
+  * Enchanting Table
+  * Ender Chest
+  * Chest
+  * Backpack Customizer
+- Added Backpack Customizer block. Right-clicking it opens the attachment/customization menu for
+  the backpack whose interior the player entered.
+- The return device and original return-position behavior are retained.
+- Legacy Pocket menu id/classes are retained internally for compatibility, but are no longer shown
+  or reachable from normal tab navigation.
+
+The interior is now intended to become the physical hub for future AE2/Create/Mekanism/TaCZ and
+other facility integrations without mixing those systems into the normal inventory GUI.

@@ -1,0 +1,11 @@
+TacticalBackpack commit35
+=========================
+
+External storage linking interaction:
+- Shift + right-click an IItemHandler-capable block with the backpack to link it.
+- Supports sided handlers and falls back to unsided ITEM_HANDLER capability.
+- Shift + right-click in the air clears the generic external-storage link.
+- AE2 link data remains independent and is not cleared by this action.
+- Linked dimension / block position / side are shown in the backpack tooltip.
+- Added ja_jp / en_us messages for link, unlink and invalid-target feedback.
+- Removed the literal Tactical Backpack menu display name by returning an empty title component.

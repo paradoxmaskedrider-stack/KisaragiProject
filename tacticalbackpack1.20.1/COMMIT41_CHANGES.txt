@@ -1,0 +1,14 @@
+TacticalBackpack commit41
+=========================
+
+Forge update for Minecraft 1.20.1:
+- Forge 47.4.23 -> 47.4.26
+- Gradle 9.8.0 remains unchanged.
+- ForgeGradle 7 / Renamer setup remains unchanged.
+- Minecraft stays on 1.20.1.
+- mods.toml minimum range remains compatible with Forge 47.x.
+
+Recommended verification:
+  .\gradlew.bat --version
+  .\gradlew.bat clean
+  .\gradlew.bat runClient

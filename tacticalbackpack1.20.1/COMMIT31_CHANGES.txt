@@ -1,0 +1,21 @@
+TacticalBackpack commit31
+
+Pickup overflow routing
+- Vanilla player inventory keeps first priority.
+- When normal inventory has no room, remaining ItemEntity stacks can route into carried TacticalBackpacks.
+- By default a receiving backpack must contain Auto Pickup Module.
+- If the backpack cannot accept the remainder and it has a valid linked AE2 network, the remainder can be inserted directly into ME storage.
+- Anything not accepted by backpack/AE2 remains in the world; it is not deleted.
+- Nested TacticalBackpacks obey overflowSkipNestedBackpacks.
+
+New config keys
+- enablePickupOverflow = true
+- pickupOverflowRequiresAutoPickupModule = true
+- pickupOverflowToAE2 = true
+
+New classes
+- BackpackInsertionService
+- BackpackPickupOverflowHandler
+
+AE2
+- Added direct external insertion path for pickup overflow.

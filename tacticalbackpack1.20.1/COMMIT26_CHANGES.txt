@@ -1,0 +1,15 @@
+TacticalBackpack commit26
+
+UI / tab fixes
+- Removed the generic "TacticalBackpack" title from the main backpack screen.
+- Registered client screens for Craft, Pocket, Upgrades, and Attachments tabs.
+- All secondary screens now keep the same tab row visible, so tabs can be switched repeatedly.
+- Renamed the user-facing Equipment tab to Attachments (Japanese tab label: 装着).
+- Reused the reserved six equipment slots as six dedicated attachment slots.
+- Fixed BackpackEquipmentMenu creating 12 slots while BackpackInventory reserved only 6.
+- Added AttachmentSlot and limited it to backpack module/core/memory attachment items.
+- Added section labels and translations for secondary screens.
+
+META-INF
+- Verified the project package contains exactly one META-INF directory:
+  src/main/resources/META-INF

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83cea111-fc04-440a-8a63-c6e806066de5" name="変更" comment="Merge master into main and initialize TacticalBackpack v0.1.9">
+    <list default="true" id="83cea111-fc04-440a-8a63-c6e806066de5" name="変更" comment="Merge master into main and initialize TacticalBackpack v0.1.9.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +154,8 @@
     <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.2.4" />
     <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.2.5" />
     <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.1.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge master into main and initialize TacticalBackpack v0.1.9" />
+    <MESSAGE value="Merge master into main and initialize TacticalBackpack v0.1.9.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge master into main and initialize TacticalBackpack v0.1.9.5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
