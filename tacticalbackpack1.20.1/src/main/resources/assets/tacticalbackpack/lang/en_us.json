@@ -23,7 +23,6 @@
   "screen.tacticalbackpack.gunpacks.retry_done": "Failed downloads were queued again.",
   "screen.tacticalbackpack.tab.main": "Main",
   "screen.tacticalbackpack.tab.craft": "Craft",
-  "screen.tacticalbackpack.tab.pocket": "Pocket",
   "screen.tacticalbackpack.tab.upgrades": "Upgr.",
   "screen.tacticalbackpack.tab.equipment": "Equip",
   "screen.tacticalbackpack.ae2.title": "AE2 / ME Link",
@@ -78,7 +77,6 @@
   "block.tacticalbackpack.backpack_trade_terminal": "Backpack Trade Terminal",
   "screen.tacticalbackpack.tab.attachments": "Attach",
   "screen.tacticalbackpack.section.craft": "Crafting",
-  "screen.tacticalbackpack.section.pocket": "Pocket",
   "screen.tacticalbackpack.section.upgrades": "Upgrades",
   "screen.tacticalbackpack.section.attachments": "Attachments",
   "screen.tacticalbackpack.storage.page": "Page",
@@ -88,5 +86,11 @@
   "message.tacticalbackpack.external_storage.unlinked": "External storage link removed.",
   "message.tacticalbackpack.external_storage.invalid": "This block cannot be linked as item storage.",
   "message.tacticalbackpack.external_storage.unsided": "unsided",
-  "tooltip.tacticalbackpack.external_storage": "External storage: %1$s [%2$s, %3$s, %4$s] / %5$s"
+  "tooltip.tacticalbackpack.external_storage": "External storage: %1$s [%2$s, %3$s, %4$s] / %5$s",
+  "screen.tacticalbackpack.enter_interior": "Enter Backpack Interior",
+  "message.tacticalbackpack.interior.no_backpack": "No Tactical Backpack was found.",
+  "message.tacticalbackpack.interior.missing": "The backpack interior dimension is missing.",
+  "message.tacticalbackpack.interior.return_missing": "No return position is stored.",
+  "block.tacticalbackpack.backpack_customizer": "Backpack Customizer",
+  "item.tacticalbackpack.backpack_customizer": "Backpack Customizer"
 }

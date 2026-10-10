@@ -278,6 +278,17 @@ public class TacticalBackpackItem extends Item {
         return ItemStack.EMPTY;
     }
 
+    public static ItemStack findBackpackById(Player player, String backpackId) {
+        if (backpackId == null || backpackId.isBlank()) return ItemStack.EMPTY;
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.getItem() instanceof TacticalBackpackItem
+                    && backpackId.equals(getOrCreateBackpackId(stack))) {
+                return stack;
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
     public static boolean hasAutoPickupModule(ItemStack stack) {
         return BackpackAttachmentHelper.hasInstalled(stack, ModItems.AUTO_PICKUP_MODULE.get());
     }

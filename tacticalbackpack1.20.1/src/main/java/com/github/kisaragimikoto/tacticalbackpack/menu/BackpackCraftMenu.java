@@ -190,9 +190,6 @@ public class BackpackCraftMenu extends AbstractContainerMenu {
             case BackpackTabs.CRAFT -> provider("Backpack Crafting", (windowId, inv, p) ->
                     new BackpackCraftMenu(windowId, inv, backpackStack));
 
-            case BackpackTabs.POCKET -> provider("Backpack Pocket", (windowId, inv, p) ->
-                    new BackpackPocketMenu(windowId, inv, backpackStack));
-
             case BackpackTabs.UPGRADES -> provider("Backpack Upgrades", (windowId, inv, p) ->
                     new BackpackUpgradesMenu(windowId, inv, backpackStack));
 

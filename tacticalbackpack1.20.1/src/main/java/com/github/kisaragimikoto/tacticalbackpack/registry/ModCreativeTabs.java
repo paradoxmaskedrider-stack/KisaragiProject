@@ -43,6 +43,7 @@ public class ModCreativeTabs {
                         output.accept(ModItems.MEMORY_CARD.get());
                         output.accept(ModItems.TRADE_COIN.get());
                         output.accept(ModItems.BACKPACK_TRADE_TERMINAL.get());
+                        output.accept(ModItems.BACKPACK_CUSTOMIZER.get());
                         output.accept(ModItems.BACKPACK_RETURN_DEVICE.get());
                         output.accept(ModItems.BACKPACK_ZONE_CONTROLLER.get());
                         output.accept(ModItems.BACKPACK_ZONE_REMOVER.get());

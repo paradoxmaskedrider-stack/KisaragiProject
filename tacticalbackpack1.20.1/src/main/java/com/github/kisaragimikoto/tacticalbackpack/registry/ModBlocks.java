@@ -2,6 +2,7 @@ package com.github.kisaragimikoto.tacticalbackpack.registry;
 
 import com.github.kisaragimikoto.tacticalbackpack.TacticalBackpack;
 import com.github.kisaragimikoto.tacticalbackpack.block.BackpackTradeTerminalBlock;
+import com.github.kisaragimikoto.tacticalbackpack.block.BackpackCustomizerBlock;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -31,4 +32,15 @@ public class ModBlocks {
                                     .requiresCorrectToolForDrops()
                     )
             );
+    public static final RegistryObject<Block> BACKPACK_CUSTOMIZER =
+            BLOCKS.register(
+                    "backpack_customizer",
+                    () -> new BackpackCustomizerBlock(
+                            BlockBehaviour.Properties.of()
+                                    .mapColor(MapColor.METAL)
+                                    .strength(3.5F)
+                                    .sound(SoundType.METAL)
+                    )
+            );
+
 }

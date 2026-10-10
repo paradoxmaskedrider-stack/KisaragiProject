@@ -91,6 +91,13 @@ public class ModItems {
                             new Item.Properties().stacksTo(64).rarity(Rarity.RARE)
                     ));
 
+    public static final RegistryObject<Item> BACKPACK_CUSTOMIZER =
+            ITEMS.register("backpack_customizer",
+                    () -> new BlockItem(
+                            ModBlocks.BACKPACK_CUSTOMIZER.get(),
+                            new Item.Properties().stacksTo(64).rarity(Rarity.RARE)
+                    ));
+
     public static final RegistryObject<Item> BACKPACK_RETURN_DEVICE =
             ITEMS.register("backpack_return_device",
                     () -> new BackpackReturnDeviceItem(new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));

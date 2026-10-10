@@ -6,6 +6,7 @@ import com.github.kisaragimikoto.tacticalbackpack.menu.TacticalBackpackMenu;
 import com.github.kisaragimikoto.tacticalbackpack.network.AE2BackpackActionPacket;
 import com.github.kisaragimikoto.tacticalbackpack.network.AE2ItemListRequestPacket;
 import com.github.kisaragimikoto.tacticalbackpack.network.AE2PullStackPacket;
+import com.github.kisaragimikoto.tacticalbackpack.network.EnterBackpackWorldPacket;
 import com.github.kisaragimikoto.tacticalbackpack.network.ModNetwork;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -47,10 +48,17 @@ public final class TacticalBackpackScreen extends AbstractContainerScreen<Tactic
 
         int tabY = topPos + 6;
         addTab(BackpackTabs.MAIN, leftPos + 6, tabY, "screen.tacticalbackpack.tab.main");
-        addTab(BackpackTabs.CRAFT, leftPos + 39, tabY, "screen.tacticalbackpack.tab.craft");
-        addTab(BackpackTabs.POCKET, leftPos + 72, tabY, "screen.tacticalbackpack.tab.pocket");
-        addTab(BackpackTabs.UPGRADES, leftPos + 105, tabY, "screen.tacticalbackpack.tab.upgrades");
-        addTab(BackpackTabs.EQUIPMENT, leftPos + 138, tabY, "screen.tacticalbackpack.tab.attachments");
+        addTab(BackpackTabs.CRAFT, leftPos + 48, tabY, "screen.tacticalbackpack.tab.craft");
+        addTab(BackpackTabs.UPGRADES, leftPos + 90, tabY, "screen.tacticalbackpack.tab.upgrades");
+        addTab(BackpackTabs.EQUIPMENT, leftPos + 132, tabY, "screen.tacticalbackpack.tab.attachments");
+
+        addRenderableWidget(Button.builder(
+                Component.translatable("screen.tacticalbackpack.enter_interior"),
+                button -> {
+                    ModNetwork.CHANNEL.sendToServer(new EnterBackpackWorldPacket());
+                    onClose();
+                })
+                .bounds(leftPos + 8, topPos - 22, 160, 18).build());
 
         initStoragePageControls();
 

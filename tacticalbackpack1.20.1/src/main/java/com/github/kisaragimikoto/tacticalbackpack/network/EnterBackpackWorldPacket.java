@@ -31,7 +31,7 @@ public class EnterBackpackWorldPacket {
             ItemStack backpack = TacticalBackpackItem.getEquippedBackpack(player);
             if (backpack.isEmpty()) return;
 
-            BackpackWorldTeleporter.enter(player);
+            BackpackWorldTeleporter.enter(player, backpack);
         });
 
         ctx.get().setPacketHandled(true);
